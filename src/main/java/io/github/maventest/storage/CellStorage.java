@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CellStorage {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {/*
 
     List<Cell> cellArrayList = new ArrayList<Cell>();
 
@@ -16,6 +16,7 @@ public class CellStorage {
     System.out.println(cellArrayList.get(0).toString());
 
 
-  // System.out.println(cellArrayList.get(0).getCoordinateY() + cellArrayList.get(0).getCoordinateX());
+  // System.out.println(cellArrayList.get(0).getCoordinateY() + cellArrayList.get(0).getCoordinateX());*/
 }
+
 }

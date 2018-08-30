@@ -3,8 +3,14 @@ package io.github.maventest;
 public class Cell {
 
     private int coordinateX = 0;
-    private int coordinateY = 1;
+    private int coordinateY = 0;
     private boolean shipInCell= false;
+
+    public Cell(int coordinateX, int coordinateY, boolean shipInCell) {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
+        this.shipInCell = shipInCell;
+    }
 
     public boolean isShipInCell() {
         return shipInCell;
