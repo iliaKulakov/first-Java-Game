@@ -6,6 +6,8 @@ public class Cell {
     private int coordinateY = 0;
     private boolean shipInCell= false;
 
+
+
     public Cell(int coordinateX, int coordinateY, boolean shipInCell) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
@@ -19,8 +21,6 @@ public class Cell {
     public void setShipInCell(boolean shipInCell) {
         this.shipInCell = shipInCell;
     }
-
-
 
     public int getCoordinateX() {
         return coordinateX;
@@ -45,5 +45,12 @@ public class Cell {
                 ", coordinateY=" + coordinateY +
                 ", shipInCell=" + shipInCell +
                 '}';
+    }
+
+
+    public  void showElements(){
+        System.out.println(getCoordinateX());
+        System.out.println(getCoordinateY());
+        System.out.println(isShipInCell());
     }
 }

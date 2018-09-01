@@ -9,7 +9,7 @@
         <module name="java-game" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="java-game" target="1.7" />
     </bytecodeTargetLevel>
   </component>
