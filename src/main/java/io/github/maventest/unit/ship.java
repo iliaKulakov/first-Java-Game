@@ -1,5 +1,7 @@
 package io.github.maventest.unit;
 
+import static io.github.maventest.unit.Iunit.sizeOfShips.singleDeckShip;
+
 public class ship extends unit implements Iunit {
 
     ship(){
@@ -20,16 +22,36 @@ public class ship extends unit implements Iunit {
         this.numOfHits += 1;
     }
 
-    placeShipOnBoard(int shipSize,int life){
+    //placeShipOnBoard(int shipSize,int life){
+    //placeShipOnBoard(){
 
-        this.life = life;
-        this.shipSize = shipSize;
+        enum sizeOfShips {
+
+            singleDeckShip {
+                int  life = 1;
+                int  numOfHits =0;
+
+                public static int getLife() {
+                    return this.life;
+                }
+
+                public int getNumOfHits() {
+                    return this.numOfHits;
+                }
+            }
+
+            //twoDeckShip,
+            //threeDeckShip,
+            //fourDeckShip
+
+        }
+
+  //  }
+
+    public static void main (String[] args){
 
 
-        sizeOfShips.singleDeckShip
-
-
-
+        System.out.println(sizeOfShips.singleDeckShip);
     }
 
 
