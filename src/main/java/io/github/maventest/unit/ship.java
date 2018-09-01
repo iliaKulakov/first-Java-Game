@@ -4,7 +4,7 @@ public class ship extends unit implements Iunit {
 
     ship(){
     super.life = life;
-    super.shipSize = shipSize;
+   // super.shipSize = shipSize;
     super.hit = hit;
     super.numOfHits = numOfHits;
     }
@@ -25,12 +25,10 @@ public class ship extends unit implements Iunit {
         this.life = life;
         this.shipSize = shipSize;
 
-        if (shipSize<=4||shipSize!=0)
-        {
 
-        }else {
+        sizeOfShips.singleDeckShip
 
-        }
+
 
     }
 
