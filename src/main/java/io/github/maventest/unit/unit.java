@@ -4,5 +4,7 @@ public abstract class unit {
 
     public  int life=0;
     public  int shipSize=0;
+    public  int hit = 0;
+    public  boolean isAlive=0;
 
 }
