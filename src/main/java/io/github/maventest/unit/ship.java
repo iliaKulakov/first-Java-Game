@@ -6,14 +6,18 @@ public class ship extends unit implements Iunit {
     super.life = life;
     super.shipSize = shipSize;
     super.hit = hit;
+    super.numOfHits = numOfHits;
     }
 
-
     public boolean getIsAlive() {
-        if ((this.life - this.hit) == 0) {
+        if ((this.life - this.numOfHits) == 0) {
             this.isAlive = false;
         }
         return this.isAlive;
+    }
+
+    void addHits() {
+        this.numOfHits += 1;
     }
 
     placeShipOnBoard(int shipSize,int life){
@@ -27,8 +31,6 @@ public class ship extends unit implements Iunit {
         }else {
 
         }
-
-
 
     }
 
