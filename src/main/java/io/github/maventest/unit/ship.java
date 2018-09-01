@@ -24,7 +24,7 @@ public class ship extends unit implements Iunit {
 
     //placeShipOnBoard(int shipSize,int life){
     //placeShipOnBoard(){
-
+/*
         enum sizeOfShips {
 
             singleDeckShip {
@@ -51,8 +51,8 @@ public class ship extends unit implements Iunit {
     public static void main (String[] args){
 
 
-        System.out.println(sizeOfShips.singleDeckShip);
+        System.out.println(sizeOfShips.singleDeckShip);*/
     }
 
 
-}
+
