@@ -1,10 +1,7 @@
 package io.github.maventest.storage;
 import io.github.maventest.Cell;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
-
+g
 public class Board {
 
    static Cell[][] multiDimensionalBoard= new Cell[3][3];
@@ -33,26 +30,15 @@ public class Board {
         massiv[0][1] = 2;
         massiv[1][0] = 1;
         massiv[1][1] = 2;
-        //massiv[0][0] =
-        //massiv[0][0] =
-        //massiv[0][0] =
+
 
         for (int i = 0; i<massiv.length; i++) {
             for (int j = 0; j < massiv.length; j++)
 
 
                 System.out.print(massiv[i][j]);
-           // System.out.print("\n");
+
         }
-
-
-
-     //   final Stream<String> streamFromArrays = Arrays.stream(massiv);
-       // streamFromArrays.forEach(()-> {
-         //   return System.out.print("test");
-       // });
-
-
 
 
 }}
