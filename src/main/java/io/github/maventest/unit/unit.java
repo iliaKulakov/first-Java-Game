@@ -8,7 +8,4 @@ public abstract class unit {
     public  boolean isAlive=false;
     public int numOfHits=0;
 
-
-
-
 }

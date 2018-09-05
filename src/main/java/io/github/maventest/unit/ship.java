@@ -4,12 +4,32 @@ import static io.github.maventest.unit.Iunit.sizeOfShips.singleDeckShip;
 
 public class ship extends unit implements Iunit {
 
-    ship(){
+    enum sizeOfShips {singleDeckShip , twoDeckShip, threeDeckShip, fourDeckShip}
+
+    public ship(){
     super.life = life;
-   // super.shipSize = shipSize;
     super.hit = hit;
     super.numOfHits = numOfHits;
     }
+
+    public ship(){
+
+        this.sizeOfShips = sizeOfShips;
+
+        switch(this.sizeOfShips){
+        case singleDeckShip:
+            int  life = 1;
+            int  numOfHits =0;
+        break;
+        }
+
+       // super.life = life;
+       // super.hit = hit;
+        super.numOfHits = numOfHits;
+    }
+
+
+
 
     public boolean getIsAlive() {
         if ((this.life - this.numOfHits) == 0) {
@@ -17,7 +37,6 @@ public class ship extends unit implements Iunit {
         }
         return this.isAlive;
     }
-
     void addHits() {
         this.numOfHits += 1;
     }
@@ -46,13 +65,15 @@ public class ship extends unit implements Iunit {
 
         }
 
-  //  }
+  //  }*/
 
     public static void main (String[] args){
 
 
-        System.out.println(sizeOfShips.singleDeckShip);*/
-    }
+     //   System.out.println(sizeOfShips.singleDeckShip);
+
+
+    }} //class
 
 
 
