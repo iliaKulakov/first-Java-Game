@@ -1,5 +1,7 @@
 package io.github.maventest;
 
+import io.github.maventest.unit.mainShip;
+
 public class Cell {
 
     private int coordinateX = 0;
@@ -15,6 +17,13 @@ public class Cell {
     public boolean isShipInCell() {
         return shipInCell;
     }
+
+    public mainShip get2SizeShip() {
+        mainShip<Integer,Integer,Boolean,Integer,Integer> twoSizeShip = new mainShip(2,0,true,20,2);
+
+        return twoSizeShip;
+    }
+
 
     public void setShipInCell(boolean shipInCell) {
         this.shipInCell = shipInCell;
@@ -51,6 +60,13 @@ public class Cell {
         System.out.println(isShipInCell());
     }
 
+
+    public static void main (String[] args){
+
+        Cell cell = new Cell(0,0,true);
+       System.out.println(cell.get2SizeShip().toString());
+
+    }
 
 
 }

@@ -9,7 +9,7 @@ public class Board {
     public static void main (String[] args) throws Exception{
 
             multiDimensionalBoard[0][0]  = new Cell(0,0,true);
-            multiDimensionalBoard[0][1]  = new Cell(0,1,true);
+            multiDimensionalBoard[0][1]  = new Cell(0,1,false);
             multiDimensionalBoard[0][2]  = new Cell(0,2,false);
             multiDimensionalBoard[1][0]  = new Cell(1,0,false);
             multiDimensionalBoard[1][1]  = new Cell(1,1,false);
@@ -25,14 +25,18 @@ public class Board {
 
             }
 
-        int n =3;
+            multiDimensionalBoard[0][0] = new Cell(0,0,true);
+            System.out.println(multiDimensionalBoard[0][0].get2SizeShip().toString());
+
+
+    /*    int n =3;
                 int mas[][];
         mas=new int [3][3];
         for (int i=0; i<n; i++){
             for (int j=0; j<n; j++)
                 System.out.print(mas[i][j] + "\t");
             System.out.println('\n');
-}
+}*/
 
 }}
 
