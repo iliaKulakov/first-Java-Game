@@ -42,16 +42,17 @@ public class mainShip <A,B,C,D> extends unit {
     }
 
 
-    public boolean getIsAlive() {
+   /* public boolean getIsAlive1() {
         if ((this.life - this.numOfHits) == 0) {
             this.isAlive = false;
         }
         return this.isAlive;
     }
+
     void addHits() {
         this.numOfHits += 1;
     }
-
+*/
     public static void main (String[] args){
 
         mainShip<Integer,Integer,Boolean,Integer> twoSizeShip = new mainShip(2,0,true,20);
