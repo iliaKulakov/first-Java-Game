@@ -9,4 +9,6 @@ public interface Unit {
     int getSize();
 
     void setPosition(Cell... cells);
+
+
 }

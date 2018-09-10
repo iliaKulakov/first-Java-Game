@@ -14,7 +14,6 @@ public class Ocean implements Board {
     private final Random randomGenerator = new Random();
 
     private int cells[][] = new int[SIZE_W][SIZE_H];
-
     private List<Unit> units = new ArrayList<>();
 
     @Override
@@ -48,6 +47,31 @@ public class Ocean implements Board {
         boat.setPosition(cell);
 
         units.add(boat);
+    }
+
+
+   // @Override
+   // public boolean isOccupied(int i,int j) {
+     //   this.cells[i][j]
+
+       // units.
+ //               units.contains()
+///
+   //     return (this.units[i][j] instanceof Cell);
+    //}//
+
+
+    public boolean isOccupied(Ship boat) {
+        if(this.units.contains(boat))
+        {  System.out.println("Cells with ships");
+            return true;
+
+        }
+        else
+        {System.out.println("Cells without ships");
+            return false;
+
+        }
     }
 
     public void printUnits() {

@@ -13,6 +13,8 @@ public class App {
 
         board.placeUnit();
 
+        board.isOccupied();
+
         ((Ocean) board).printUnits();
     }
 
