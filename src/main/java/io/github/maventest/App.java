@@ -12,8 +12,9 @@ public class App {
         board.print();
 
         board.placeUnit();
+        board.placeUnit();
 
-        board.isOccupied();
+       // board.isOccupied();
 
         ((Ocean) board).printUnits();
     }

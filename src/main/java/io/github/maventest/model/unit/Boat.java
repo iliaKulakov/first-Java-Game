@@ -23,6 +23,10 @@ public class Boat implements Ship {
         this.cell = cells[0];
     }
 
+    public Cell getCell() {
+        return cell;
+    }
+
     @Override
     public String toString() {
         return "Boat{" +

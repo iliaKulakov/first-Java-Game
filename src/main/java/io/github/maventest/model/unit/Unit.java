@@ -10,5 +10,6 @@ public interface Unit {
 
     void setPosition(Cell... cells);
 
+    public Cell getCell();
 
 }

@@ -18,4 +18,9 @@ public class Bomber implements Airplane {
     public void setPosition(Cell... cells) {
 
     }
+
+    @Override
+    public Cell getCell() {
+        return null;
+    }
 }
