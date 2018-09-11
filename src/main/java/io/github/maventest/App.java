@@ -13,6 +13,21 @@ public class App {
 
         board.placeUnit();
         board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
 
        // board.isOccupied();
 
