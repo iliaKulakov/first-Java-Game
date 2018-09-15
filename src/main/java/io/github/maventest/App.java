@@ -8,10 +8,12 @@ public class App {
         Board board = new Ocean();
 
         board.init();
-
         board.print();
 
         board.placeUnit();
+        board.placeTwoUnit();
+        board.placeTwoUnit();
+        /*board.placeUnit();
         board.placeUnit();
         board.placeUnit();
         board.placeUnit();
@@ -26,8 +28,7 @@ public class App {
         board.placeUnit();
         board.placeUnit();
         board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
+        board.placeUnit();*/
 
        // board.isOccupied();
 

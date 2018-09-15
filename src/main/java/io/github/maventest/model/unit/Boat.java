@@ -33,4 +33,5 @@ public class Boat implements Ship {
                 "cell=" + cell +
                 '}';
     }
+
 }

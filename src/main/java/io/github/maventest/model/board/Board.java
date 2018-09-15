@@ -10,6 +10,8 @@ public interface Board {
 
     void placeUnit();
 
+    void placeTwoUnit();
+
     boolean isOccupied(Ship boat);
 
 

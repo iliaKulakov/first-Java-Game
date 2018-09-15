@@ -23,4 +23,9 @@ public class Land implements Board {
     public boolean isOccupied(Ship boat) {
         return false;
     }
+
+    @Override
+    public void placeTwoUnit() {
+
+    }
 }
