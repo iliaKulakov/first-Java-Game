@@ -10,7 +10,7 @@ public class App {
         board.init();
         board.print();
 
-        board.placeUnit();
+        //board.placeUnit();
         board.placeTwoUnit();
         board.placeTwoUnit();
         /*board.placeUnit();

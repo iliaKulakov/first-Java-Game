@@ -69,14 +69,14 @@ public class Ocean implements Board {
         int randomH = randomGenerator.nextInt(SIZE_H);
 
         // Cell cell = new Cell(randomW, randomH);
-        Cell cell = new Cell(2, 2);
-        Cell cell1 = new Cell(2, 3);
+        Cell cell = new Cell(randomW, randomH);
+        //Cell cell1 = new Cell(randomW, randomH);
 
         CellSet<Cell> cells = new CellSet<>();
         cells.add(cell);
-        cells.add(cell1);
 
-        twoDeckShip.setPosition(cell,cell1);
+
+        twoDeckShip.setPosition(cell);
         System.out.println(twoDeckShip.toString());
 
         if (boats.isEmpty()) {
