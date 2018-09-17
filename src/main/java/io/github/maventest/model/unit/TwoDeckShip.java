@@ -6,14 +6,6 @@ import java.util.Arrays;
 
 public class TwoDeckShip implements Ship{
 
-
-    @Override
-    public String toString() {
-        return "TwoDeckShip{" +
-                "cellsArray=" + Arrays.toString(cellsArray) +
-                '}';
-    }
-
     private Cell[] cellsArray= new Cell[2];
     public int numOfHits;
     public int maxHitAllowed;
@@ -45,4 +37,13 @@ public class TwoDeckShip implements Ship{
     public Cell[] getCellsArray() {
         return cellsArray;
     }
+
+    @Override
+    public String toString() {
+        return "TwoDeckShip{" +
+                "cellsArray=" + Arrays.toString(cellsArray) +
+                '}';
+    }
+
+
 }

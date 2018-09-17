@@ -37,12 +37,10 @@ public class Ocean implements Board {
     @Override
     public void placeUnit() {
         Ship boat = new Boat();
-
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
         // Cell cell = new Cell(randomW, randomH);
-
         Cell cell = new Cell(2, 2);
         CellSet<Cell> cells = new CellSet<>();
         cells.add(cell);
@@ -53,7 +51,6 @@ public class Ocean implements Board {
             boats.put(cells, boat);
             return;
         }
-
         for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
             if (cells.contains(item.getKey())) {
                 System.out.println("Cells without ships");
@@ -62,7 +59,6 @@ public class Ocean implements Board {
                 System.out.println("Cells with ships. Need to repeat place unit again");
             }
         }
-
     }
 
 
