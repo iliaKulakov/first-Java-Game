@@ -69,7 +69,7 @@ public class Ocean implements Board {
         int randomH = randomGenerator.nextInt(SIZE_H);
 
         // Cell cell = new Cell(randomW, randomH);
-        Cell cell = new Cell(randomW, randomH);
+        Cell cell = new Cell(1, 1);
         //Cell cell1 = new Cell(randomW, randomH);
 
         CellSet<Cell> cells = new CellSet<>();

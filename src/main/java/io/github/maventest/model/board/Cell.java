@@ -3,8 +3,8 @@ package io.github.maventest.model.board;
 import java.util.Objects;
 
 public final class Cell implements Comparable {
-    private final int coordinateX;
-    private final int coordinateY;
+    private int coordinateX;
+    private int coordinateY;
 
     public Cell(int coordinateX, int coordinateY) {
         this.coordinateX = coordinateX;
@@ -17,6 +17,15 @@ public final class Cell implements Comparable {
 
     public int getCoordinateY() {
         return coordinateY;
+    }
+
+
+    public void setCoordinateX(int coordinateX) {
+        this.coordinateX = coordinateX;
+    }
+
+    public void setCoordinateY(int coordinateY) {
+        this.coordinateY = coordinateY;
     }
 
     @Override
