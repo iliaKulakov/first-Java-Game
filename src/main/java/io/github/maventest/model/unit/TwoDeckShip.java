@@ -10,7 +10,7 @@ public class TwoDeckShip implements Ship{
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
-    boolean horizontal = true;
+    boolean isHorizontal = true;
 
     @Override
     public void setPosition(Cell... cells) {
