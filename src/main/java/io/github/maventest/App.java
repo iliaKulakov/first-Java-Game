@@ -9,29 +9,8 @@ public class App {
 
         board.init();
         board.print();
-
-        //board.placeUnit();
         board.placeTwoUnit();
         board.placeTwoUnit();
-        /*board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();*/
-
-       // board.isOccupied();
-
         ((Ocean) board).printUnits();
     }
 

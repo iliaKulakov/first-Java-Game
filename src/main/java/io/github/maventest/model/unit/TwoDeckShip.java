@@ -4,13 +4,17 @@ import io.github.maventest.model.board.Cell;
 import java.util.Arrays;
 import java.util.List;
 
-public class TwoDeckShip implements Ship{
+public class TwoDeckShip extends Boat implements Ship{
 
     Cell[] cellsArray= new Cell[2];
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
     boolean isHorizontal = true;
+
+    public String getShipType() {
+        return "TwoDeckShip";
+    }
 
     @Override
     public void setPosition(Cell... cells) {
@@ -20,15 +24,6 @@ public class TwoDeckShip implements Ship{
 
         cellsArray[1] = new Cell(x,y+1);}
 
-       /* for (int i = 0; i < 2; i++) {
-            if (horizontal) {
-                i++;
-            //    cellsArray1[1].setCoordinateX( cellsArray[1].getCoordinateX()+1);
-            } else {
-                //grid[row + i][column] = this;
-            }
-        }*/
-
     @Override
     public Cell getCell() {
         return null;
@@ -37,7 +32,6 @@ public class TwoDeckShip implements Ship{
     public Cell[] getCellsArray() {
         return cellsArray;
     }
-
 
     @Override
     public boolean shot() {
