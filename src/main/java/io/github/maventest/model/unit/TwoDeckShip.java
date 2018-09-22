@@ -12,6 +12,7 @@ public class TwoDeckShip extends Boat implements Ship{
     public boolean isAlive = true;
     boolean isHorizontal = true;
 
+    @Override
     public String getShipType() {
         return "TwoDeckShip";
     }

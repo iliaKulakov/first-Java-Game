@@ -23,4 +23,9 @@ public class Bomber implements Airplane {
     public Cell getCell() {
         return null;
     }
+
+    @Override
+    public String getShipType() {
+        return null;
+    }
 }

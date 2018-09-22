@@ -23,4 +23,9 @@ public class Karas implements Submarine {
     public Cell getCell() {
         return null;
     }
+
+    @Override
+    public String getShipType() {
+        return null;
+    }
 }

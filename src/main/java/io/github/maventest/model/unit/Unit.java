@@ -12,4 +12,6 @@ public interface Unit {
 
     public Cell getCell();
 
+    public String getShipType();
+
 }

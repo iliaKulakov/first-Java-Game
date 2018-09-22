@@ -34,4 +34,8 @@ public class Boat implements Ship {
                 '}';
     }
 
+    @Override
+    public String getShipType() {
+        return null;
+    }
 }
