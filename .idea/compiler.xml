@@ -9,8 +9,8 @@
         <module name="java-game" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="java-game" target="1.7" />
+    <bytecodeTargetLevel>
+      <module name="java-game" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

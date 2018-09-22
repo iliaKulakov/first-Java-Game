@@ -1,23 +1,41 @@
 package io.github.maventest;
 
-public class App 
-{
-    public static void main( String[] args ) {
-            int SIZE = 20;
-            int[][] graph = new int[SIZE][SIZE];
-            for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    graph[i][j] = '#';
-                }
-            }
-            for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    System.out.print(graph[i][j]);
-                }
-                System.out.println();
-            }}
+import io.github.maventest.model.board.Board;
+import io.github.maventest.model.board.Ocean;
 
-        }
+public class App {
+    public static void main(String[] args) {
+        Board board = new Ocean();
+
+        board.init();
+        board.print();
+
+        //board.placeUnit();
+        board.placeTwoUnit();
+        board.placeTwoUnit();
+        /*board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();
+        board.placeUnit();*/
+
+       // board.isOccupied();
+
+        ((Ocean) board).printUnits();
+    }
+
+}
 
 
 
