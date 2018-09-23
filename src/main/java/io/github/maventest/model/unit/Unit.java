@@ -14,4 +14,6 @@ public interface Unit {
 
     public String getShipType();
 
+     boolean getIsHorizontal();
+
 }

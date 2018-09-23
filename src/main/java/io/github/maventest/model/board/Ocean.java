@@ -5,7 +5,6 @@ import io.github.maventest.model.unit.Boat;
 import io.github.maventest.model.unit.Ship;
 import io.github.maventest.model.unit.TwoDeckShip;
 import io.github.maventest.model.unit.Unit;
-
 import java.util.*;
 
 public class Ocean implements Board {
@@ -69,15 +68,25 @@ public class Ocean implements Board {
 
     @Override //Working now
     public void placeTwoUnit() {
-        TwoDeckShip twoDeckShip = new TwoDeckShip();
+        Ship twoDeckShip = shipFactory.getShip("TwoDeckShip");
+
+        int shipLength = twoDeckShip.getSize();
+        boolean horizontal = twoDeckShip.getIsHorizontal();
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
-
-        Cell cell = new Cell(1, 1);
         CellSet<Cell> cells = new CellSet<>();
-        cells.add(cell);
 
-        twoDeckShip.setPosition(cell);
+        for (int i = 0; i < shipLength; i++) {
+            if (horizontal) {
+            Cell cell = new Cell(randomW, randomH+1);
+                cells.add(cell);
+                twoDeckShip.setPosition(cell);
+            } else {
+            Cell cell = new Cell(randomW+1, randomH);
+                cells.add(cell);
+                twoDeckShip.setPosition(cell);
+            }
+
         System.out.println(twoDeckShip.toString());
 
         if (boats.isEmpty()) {
@@ -95,9 +104,12 @@ public class Ocean implements Board {
         }
 
     }
+}
 
-    public boolean isOccupied(Ship boat) {
-        if (this.units.contains(boat)) {
+
+
+    public boolean isOccupied(Ship twoDeckShip) {
+        if (this.units.contains(twoDeckShip)) {
             System.out.println("Cells with ships");
             return true;
 
@@ -106,8 +118,17 @@ public class Ocean implements Board {
             return false;
 
         }
-    }
+
+
+
+
+}
+
+
+
     public void printUnits() {
         units.forEach(System.out::print);
     }
+
+
 }

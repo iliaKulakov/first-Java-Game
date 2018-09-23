@@ -28,4 +28,9 @@ public class Bomber implements Airplane {
     public String getShipType() {
         return null;
     }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
+    }
 }

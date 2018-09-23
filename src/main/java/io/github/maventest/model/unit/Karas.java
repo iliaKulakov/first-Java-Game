@@ -28,4 +28,9 @@ public class Karas implements Submarine {
     public String getShipType() {
         return null;
     }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
+    }
 }

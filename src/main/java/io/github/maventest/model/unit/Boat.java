@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Boat implements Ship {
 
+
+
     private Cell cell;
 
     @Override
@@ -20,6 +22,7 @@ public class Boat implements Ship {
 
     @Override
     public void setPosition(Cell... cells) {
+
         this.cell = cells[0];
     }
 
@@ -37,5 +40,10 @@ public class Boat implements Ship {
     @Override
     public String getShipType() {
         return null;
+    }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
     }
 }
