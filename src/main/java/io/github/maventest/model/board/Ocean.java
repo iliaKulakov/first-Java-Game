@@ -1,6 +1,5 @@
 package io.github.maventest.model.board;
 
-
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.unit.Boat;
 import io.github.maventest.model.unit.Ship;
@@ -42,15 +41,12 @@ public class Ocean implements Board {
         }
     }
 
-
     @Override
     public void placeUnit() {
         Ship boat = shipFactory.getShip("Boat");
-        //Ship boat = new Boat();
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
-        // Cell cell = new Cell(randomW, randomH);
         Cell cell = new Cell(2, 2);
         CellSet<Cell> cells = new CellSet<>();
         cells.add(cell);
@@ -71,14 +67,12 @@ public class Ocean implements Board {
         }
     }
 
-
     @Override //Working now
     public void placeTwoUnit() {
         TwoDeckShip twoDeckShip = new TwoDeckShip();
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
-        // Cell cell = new Cell(randomW, randomH);
         Cell cell = new Cell(1, 1);
         CellSet<Cell> cells = new CellSet<>();
         cells.add(cell);
