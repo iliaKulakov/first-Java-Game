@@ -1,5 +1,7 @@
 package io.github.maventest.model.board;
 
+
+import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.unit.Boat;
 import io.github.maventest.model.unit.Ship;
 import io.github.maventest.model.unit.TwoDeckShip;
@@ -14,9 +16,15 @@ public class Ocean implements Board {
     private int cells[][] = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
+    private final ShipFactory shipFactory;
+
+    public Ocean(){
+        shipFactory = ShipFactory.getInstance();
+    }
 
     @Override
     public void init() {
+
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
                 cells[i][j] = 0;
@@ -34,9 +42,11 @@ public class Ocean implements Board {
         }
     }
 
+
     @Override
     public void placeUnit() {
-        Ship boat = new Boat();
+        Ship boat = shipFactory.getShip("Boat");
+        //Ship boat = new Boat();
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
