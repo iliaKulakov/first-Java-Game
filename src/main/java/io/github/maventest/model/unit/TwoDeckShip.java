@@ -3,10 +3,12 @@ package io.github.maventest.model.unit;
 import io.github.maventest.model.board.Cell;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class TwoDeckShip extends Boat implements Ship {
 
     Cell[] cellsArray= new Cell[2];
+    private final Random randomGenerator = new Random();
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
@@ -32,7 +34,13 @@ public class TwoDeckShip extends Boat implements Ship {
         this.cellsArray[0] = cells[0];
         int x = cellsArray[0].getCoordinateX();
         int y = cellsArray[0].getCoordinateY();
-        cellsArray[1] = new Cell(x,y+1);}
+        boolean horizontal = randomGenerator.nextBoolean();
+        if (horizontal) {
+            cellsArray[1] = new Cell(x, y + 1);
+        }else{
+            cellsArray[1] = new Cell(x+1,y);
+            }
+    }
 
     @Override
     public Cell getCell() {

@@ -44,29 +44,16 @@ public class Ocean implements Board {
     public void placeUnit(String shipType) {
 
         Ship ship = this.shipFactory.getShip(shipType);
-
         int shipLength = ship.getSize();
-       // boolean horizontal = ship.getIsHorizontal();
-       // boolean horizontal = randomGenerator.nextBoolean();
-        boolean horizontal = false;
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
         CellSet<Cell> cells = new CellSet<>();
 
         for (int i = 0; i < shipLength; i++) {
-            /* problem with if - else working only for Y
-            */
-
-            if (horizontal) {
-            Cell cell = new Cell(randomW, randomH+1);
-                cells.add(cell);
-                ship.setPosition(cell);
-            } else {
-            Cell cell = new Cell(randomW+1, randomH);
+            Cell cell = new Cell(randomW, randomH);
                 cells.add(cell);
                 ship.setPosition(cell);
             }
-        }
 
         System.out.println(ship.toString());
 
