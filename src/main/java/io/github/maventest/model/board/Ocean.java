@@ -54,9 +54,9 @@ public class Ocean implements Board {
         CellSet<Cell> cells = new CellSet<>();
 
         for (int i = 0; i < shipLength; i++) {
-            /* problem with if - else workin only for Y
+            /* problem with if - else working only for Y
             */
-             */
+
             if (horizontal) {
             Cell cell = new Cell(randomW, randomH+1);
                 cells.add(cell);
