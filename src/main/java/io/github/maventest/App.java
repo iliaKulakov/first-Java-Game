@@ -9,8 +9,8 @@ public class App {
 
         board.init();
         board.print();
-        board.placeTwoUnit();
-        board.placeTwoUnit();
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
         ((Ocean) board).printUnits();
     }
 

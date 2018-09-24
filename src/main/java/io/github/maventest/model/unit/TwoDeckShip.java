@@ -12,6 +12,7 @@ public class TwoDeckShip extends Boat implements Ship {
     public boolean isAlive = true;
     private boolean isHorizontal = true;
 
+
     @Override
     public boolean getIsHorizontal() {
         return isHorizontal;

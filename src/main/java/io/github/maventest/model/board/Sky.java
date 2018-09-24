@@ -15,7 +15,7 @@ public class Sky implements Board {
     }
 
     @Override
-    public void placeUnit() {
+    public void placeUnit(String shipType) {
 
     }
 
@@ -24,8 +24,7 @@ public class Sky implements Board {
         return false;
     }
 
-    @Override
-    public void placeTwoUnit() {
+
 
     }
-}
+

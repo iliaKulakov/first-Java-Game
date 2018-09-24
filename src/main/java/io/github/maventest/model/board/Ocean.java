@@ -41,75 +41,53 @@ public class Ocean implements Board {
     }
 
     @Override
-    public void placeUnit() {
-        Ship boat = shipFactory.getShip("Boat");
-        int randomW = randomGenerator.nextInt(SIZE_W);
-        int randomH = randomGenerator.nextInt(SIZE_H);
+    public void placeUnit(String shipType) {
 
-        Cell cell = new Cell(2, 2);
-        CellSet<Cell> cells = new CellSet<>();
-        cells.add(cell);
+        Ship ship = this.shipFactory.getShip(shipType);
 
-        boat.setPosition(cell);
-
-        if (boats.isEmpty()) {
-            boats.put(cells, boat);
-            return;
-        }
-        for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-            if (cells.contains(item.getKey())) {
-                System.out.println("Cells without ships");
-            boats.put(cells, boat);
-            } else {
-                System.out.println("Cells with ships. Need to repeat place unit again");
-            }
-        }
-    }
-
-    @Override //Working now
-    public void placeTwoUnit() {
-        Ship twoDeckShip = shipFactory.getShip("TwoDeckShip");
-
-        int shipLength = twoDeckShip.getSize();
-        boolean horizontal = twoDeckShip.getIsHorizontal();
+        int shipLength = ship.getSize();
+       // boolean horizontal = ship.getIsHorizontal();
+       // boolean horizontal = randomGenerator.nextBoolean();
+        boolean horizontal = false;
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
         CellSet<Cell> cells = new CellSet<>();
 
         for (int i = 0; i < shipLength; i++) {
+            /* problem with if - else workin only for Y
+            */
+             */
             if (horizontal) {
             Cell cell = new Cell(randomW, randomH+1);
                 cells.add(cell);
-                twoDeckShip.setPosition(cell);
+                ship.setPosition(cell);
             } else {
             Cell cell = new Cell(randomW+1, randomH);
                 cells.add(cell);
-                twoDeckShip.setPosition(cell);
+                ship.setPosition(cell);
             }
+        }
 
-        System.out.println(twoDeckShip.toString());
+        System.out.println(ship.toString());
 
         if (boats.isEmpty()) {
-            boats.put(cells,twoDeckShip);
+            boats.put(cells,ship);
             return;
         }
 
         for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
             if (cells.contains(item.getKey())) {
                 System.out.println("Cells without ships");
-                boats.put(cells, twoDeckShip);
+                boats.put(cells, ship);
             } else {
                 System.out.println("Cells with ships. Need to repeat place unit again");
             }
         }
 
     }
-}
 
-
-
-    public boolean isOccupied(Ship twoDeckShip) {
-        if (this.units.contains(twoDeckShip)) {
+    public boolean isOccupied(Ship Boat) {
+        if (this.units.contains(Boat)) {
             System.out.println("Cells with ships");
             return true;
 
@@ -118,13 +96,7 @@ public class Ocean implements Board {
             return false;
 
         }
-
-
-
-
-}
-
-
+    }
 
     public void printUnits() {
         units.forEach(System.out::print);
@@ -132,3 +104,11 @@ public class Ocean implements Board {
 
 
 }
+
+
+
+
+
+
+
+

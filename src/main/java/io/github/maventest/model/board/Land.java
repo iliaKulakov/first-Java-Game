@@ -14,8 +14,7 @@ public class Land implements Board {
     }
 
     @Override
-    public void placeUnit() {
-
+    public void placeUnit(String shipType) {
 
     }
 
@@ -24,8 +23,7 @@ public class Land implements Board {
         return false;
     }
 
-    @Override
-    public void placeTwoUnit() {
+
 
     }
-}
+
