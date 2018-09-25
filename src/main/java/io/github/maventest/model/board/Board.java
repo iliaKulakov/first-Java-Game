@@ -11,7 +11,7 @@ public interface Board {
     void placeUnit(String shipType);
 
 
-    boolean isOccupied(Ship Boat);
+//    boolean isOccupied(Ship Boat);
 
 
 }

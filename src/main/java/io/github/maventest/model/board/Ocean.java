@@ -11,7 +11,7 @@ public class Ocean implements Board {
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
     private final ShipFactory shipFactory;
-    private int cells[][] = new int[SIZE_W][SIZE_H];
+    private int boardCells[][] = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
 
@@ -24,7 +24,7 @@ public class Ocean implements Board {
 
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
-                cells[i][j] = 0;
+                boardCells[i][j] = 0;
             }
         }
     }
@@ -33,7 +33,7 @@ public class Ocean implements Board {
     public void print() {
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
-                System.out.print(cells[i][j] + "\t");
+                System.out.print(boardCells[i][j] + "\t");
             }
             System.out.print("\n");
         }
@@ -43,46 +43,69 @@ public class Ocean implements Board {
     public void placeUnit(String shipType) {
 
         Ship ship = this.shipFactory.getShip(shipType);
-        int shipLength = ship.getSize();
-        int randomW = randomGenerator.nextInt(SIZE_W);
-        int randomH = randomGenerator.nextInt(SIZE_H);
-        CellSet<Cell> cells = new CellSet<>();
+        boolean horizontal = randomGenerator.nextBoolean();
 
-        for (int i = 0; i < shipLength; i++) {
-            Cell cell = new Cell(randomW, randomH);
-            cells.add(cell);
-            ship.setPosition(cell);
-        }
+        int shipLength = ship.getSize();
+        CellSet<Cell> shipCells = new CellSet<>();
+
+//      TODO: Сформировать координаты отностительно занятости и позции
+        this.generateCell(shipLength, shipCells, horizontal);
 
         System.out.println(ship.toString());
 
         if (boats.isEmpty()) {
-            boats.put(cells, ship);
+            boats.put(shipCells, ship);
             return;
         }
 
-        for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-            if (cells.contains(item.getKey())) {
-                System.out.println("Cells without ships");
-                boats.put(cells, ship);
+    }
+
+    private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
+        int randomW = randomGenerator.nextInt(SIZE_W);
+        int randomH = randomGenerator.nextInt(SIZE_H);
+
+        for (int i = 0; i < shipLength; i++) {
+            Cell cell = new Cell(randomW, randomH);
+            if (isOccupied(cells)) {
+                this.generateCell(shipLength, cells, horizontal);
             } else {
-                System.out.println("Cells with ships. Need to repeat place unit again");
+//                TODO: Проверка на горизонтальность
+                //        int x = cellsArray[0].getCoordinateX();
+//        int y = cellsArray[0].getCoordinateY();
+//
+//        if (horizontal) {
+//            cellsArray[1] = new Cell(x, y + 1);
+//        } else {
+//            cellsArray[1] = new Cell(x + 1, y);
+//        }
+
+                cells.add(cell);
             }
         }
-
     }
 
-    public boolean isOccupied(Ship Boat) {
-        if (this.units.contains(Boat)) {
-            System.out.println("Cells with ships");
-            return true;
-
-        } else {
-            System.out.println("Cells without ships");
-            return false;
-
+    private boolean isOccupied(CellSet<Cell> cells) {
+        boolean status = false;
+        for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+            if (!cells.contains(item.getKey())) {
+                status = true;
+                break;
+            }
         }
+        return status;
     }
+
+//    public boolean isOccupied(Ship Boat) {
+//        if (this.units.contains(Boat)) {
+//            System.out.println("Cells with ships");
+//            return true;
+//
+//        } else {
+//            System.out.println("Cells without ships");
+//            return false;
+//
+//        }
+//    }
 
     public void printUnits() {
         units.forEach(System.out::print);

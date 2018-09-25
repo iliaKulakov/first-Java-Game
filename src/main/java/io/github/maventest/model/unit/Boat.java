@@ -4,7 +4,6 @@ import io.github.maventest.model.board.Cell;
 
 public class Boat implements Ship {
 
-
     private Cell cell;
 
     @Override
@@ -15,12 +14,6 @@ public class Boat implements Ship {
     @Override
     public int getSize() {
         return 1;
-    }
-
-    @Override
-    public void setPosition(Cell... cells) {
-
-        this.cell = cells[0];
     }
 
     public Cell getCell() {
@@ -42,5 +35,10 @@ public class Boat implements Ship {
     @Override
     public boolean getIsHorizontal() {
         return false;
+    }
+
+    @Override
+    public void setPosition(Boolean horizontal, Cell... cells) {
+        this.cell = cells[0];
     }
 }
