@@ -1,17 +1,17 @@
 package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
+
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class TwoDeckShip extends Boat implements Ship {
 
-    Cell[] cellsArray= new Cell[2];
     private final Random randomGenerator = new Random();
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
+    Cell[] cellsArray = new Cell[2];
     private boolean isHorizontal = true;
 
 
@@ -37,9 +37,9 @@ public class TwoDeckShip extends Boat implements Ship {
         boolean horizontal = randomGenerator.nextBoolean();
         if (horizontal) {
             cellsArray[1] = new Cell(x, y + 1);
-        }else{
-            cellsArray[1] = new Cell(x+1,y);
-            }
+        } else {
+            cellsArray[1] = new Cell(x + 1, y);
+        }
     }
 
     @Override

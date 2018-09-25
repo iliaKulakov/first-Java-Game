@@ -25,6 +25,5 @@ public class Sky implements Board {
     }
 
 
-
-    }
+}
 

@@ -1,6 +1,5 @@
 package io.github.maventest.model.board;
 
-import io.github.maventest.model.unit.Boat;
 import io.github.maventest.model.unit.Ship;
 
 public interface Board {
@@ -9,7 +8,7 @@ public interface Board {
 
     void print();
 
-    void placeUnit(String shipType) ;
+    void placeUnit(String shipType);
 
 
     boolean isOccupied(Ship Boat);

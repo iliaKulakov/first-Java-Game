@@ -2,10 +2,7 @@ package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
 
-import java.util.List;
-
 public class Boat implements Ship {
-
 
 
     private Cell cell;
