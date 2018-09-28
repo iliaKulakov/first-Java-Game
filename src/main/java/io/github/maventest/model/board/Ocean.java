@@ -43,8 +43,8 @@ public class Ocean implements Board {
     public void placeUnit(String shipType) {
 
         Ship ship = this.shipFactory.getShip(shipType);
-        boolean horizontal = randomGenerator.nextBoolean();
-
+        //boolean horizontal = randomGenerator.nextBoolean();
+        boolean horizontal = false;
         int shipLength = ship.getSize();
         CellSet<Cell> shipCells = new CellSet<>();
 
@@ -69,6 +69,21 @@ public class Ocean implements Board {
             if (isOccupied(cells)) {
                 this.generateCell(shipLength, cells, horizontal);
             } else {
+
+                        if (horizontal){
+                                System.out.println("true");
+                                    for(int j = 0; j < shipLength; j++){
+                                cell.setCoordinateX(randomW);
+                                cell.setCoordinateY(randomH);
+                                randomH = randomH + 1;}
+                        } else {
+                                System.out.println("false");
+                                cell.setCoordinateX(randomW);
+                                cell.setCoordinateY(randomH);
+                                randomW++;
+                                System.out.print(cell.getCoordinateX());
+                                System.out.print(cell.getCoordinateY());
+                        }
 //                TODO: Проверка на горизонтальность
                 //        int x = cellsArray[0].getCoordinateX();
 //        int y = cellsArray[0].getCoordinateY();
