@@ -14,6 +14,7 @@ public class TwoDeckShip extends Boat implements Ship {
     public boolean isAlive = true;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
+    int size=2;
 
 
     @Override
@@ -48,7 +49,7 @@ public class TwoDeckShip extends Boat implements Ship {
 
     @Override
     public int getSize() {
-        return 2;
+        return  size;
     }
 
    /* @Override

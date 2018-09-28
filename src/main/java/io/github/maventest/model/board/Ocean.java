@@ -2,6 +2,7 @@ package io.github.maventest.model.board;
 
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.unit.Ship;
+import io.github.maventest.model.unit.TwoDeckShip;
 import io.github.maventest.model.unit.Unit;
 
 import java.util.*;
@@ -43,8 +44,9 @@ public class Ocean implements Board {
     public void placeUnit(String shipType) {
 
         Ship ship = this.shipFactory.getShip(shipType);
-        //boolean horizontal = randomGenerator.nextBoolean();
-        boolean horizontal = false;
+
+        boolean horizontal = randomGenerator.nextBoolean();
+
         int shipLength = ship.getSize();
         CellSet<Cell> shipCells = new CellSet<>();
 
@@ -57,6 +59,8 @@ public class Ocean implements Board {
             boats.put(shipCells, ship);
             return;
         }
+
+
 
     }
 
@@ -71,18 +75,19 @@ public class Ocean implements Board {
             } else {
 
                         if (horizontal){
-                                System.out.println("true");
-                                    for(int j = 0; j < shipLength; j++){
+                                System.out.println("true ");
                                 cell.setCoordinateX(randomW);
                                 cell.setCoordinateY(randomH);
-                                randomH = randomH + 1;}
-                        } else {
-                                System.out.println("false");
-                                cell.setCoordinateX(randomW);
-                                cell.setCoordinateY(randomH);
-                                randomW++;
+                                randomH ++;
                                 System.out.print(cell.getCoordinateX());
                                 System.out.print(cell.getCoordinateY());
+                        } else {
+                                System.out.println("false ");
+                                cell.setCoordinateX(randomW);
+                                cell.setCoordinateY(randomH);
+                                randomW ++;
+                                System.out.print(cell.getCoordinateX() );
+                                System.out.print(cell.getCoordinateY() );
                         }
 //                TODO: Проверка на горизонтальность
                 //        int x = cellsArray[0].getCoordinateX();

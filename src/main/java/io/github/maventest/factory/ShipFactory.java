@@ -17,15 +17,21 @@ public class ShipFactory {
         return shipFactory;
     }
 
-    public Boat getShip(String name) {
-        switch (name) {
-            case "Boat":
-                return new Boat();
-            case "TwoDeckShip":
-                return new TwoDeckShip();
-            default:
-                return new Boat();
-        }
+   // public Boat getShip(String name) {
+     public Boat getShip(String name) {
+            switch (name) {
+                case "Boat":
+                     return new Boat();
+
+                case "TwoDeckShip":
+                     return new TwoDeckShip();
+
+                default:
+                    return new Boat(); //need to fix
+
+
+            }
+
     }
 }
 
