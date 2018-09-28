@@ -19,10 +19,10 @@ public class Sky implements Board {
 
     }
 
-    @Override
-    public boolean isOccupied(Ship boat) {
-        return false;
-    }
+    //@Override
+   // public boolean isOccupied(Ship boat) {
+    //    return false;
+    //}
 
 
 }

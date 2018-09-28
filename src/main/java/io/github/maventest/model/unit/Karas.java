@@ -15,7 +15,7 @@ public class Karas implements Submarine {
     }
 
     @Override
-    public void setPosition(Cell... cells) {
+    public void setPosition(Boolean horizontal, Cell... cells) {
 
     }
 

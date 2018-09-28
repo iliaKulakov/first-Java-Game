@@ -37,9 +37,9 @@ public class TwoDeckShip extends Boat implements Ship {
         return null;
     }
 
-    public List<Cell>[] getCellsArray() {
-        return cellsArray;
-    }
+    //public List<Cell>[] getCellsArray() {
+     //   return cellsArray;
+    //}
 
     @Override
     public boolean shot() {
@@ -51,12 +51,12 @@ public class TwoDeckShip extends Boat implements Ship {
         return 2;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return "TwoDeckShip{" +
                 "cellsArray=" + Arrays.toString(cellsArray) +
                 '}';
-    }
+    }*/
 
 }
 
