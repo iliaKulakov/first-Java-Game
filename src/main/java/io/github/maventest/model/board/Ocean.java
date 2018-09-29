@@ -51,21 +51,26 @@ public class Ocean implements Board {
         CellSet<Cell> shipCells = new CellSet<>();
 
 //      TODO: Сформировать координаты отностительно занятости и позции
-        this.generateCell(shipLength, shipCells, horizontal)
-        //shipCells = this.generateCell(shipLength, shipCells, horizontal);
-
+       // this.generateCell(shipLength, shipCells, horizontal)
+        this.generateCell(shipLength, shipCells, horizontal);
 
         System.out.println(ship.toString());
         System.out.println(shipCells.toString());
+
 
         if (boats.isEmpty()) {
             boats.put(shipCells, ship);
             return;
         }
+        else{
+
+        }
+        //System.out.println(boats.containsKey(),boats.containsValue());
 
     }
 
     private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
+   // private CellSet<Cell>  generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
@@ -103,6 +108,7 @@ public class Ocean implements Board {
                 cells.add(cell);
             }
         }
+        //return cells;
     }
 
     private boolean isOccupied(CellSet<Cell> cells) {
