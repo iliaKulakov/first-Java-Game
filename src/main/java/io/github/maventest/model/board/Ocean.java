@@ -51,8 +51,9 @@ public class Ocean implements Board {
         CellSet<Cell> shipCells = new CellSet<>();
 
 //      TODO: Сформировать координаты отностительно занятости и позции
-        this.generateCell(shipLength, shipCells, horizontal);
+        this.generateCell(shipLength, shipCells, horizontal)
         //shipCells = this.generateCell(shipLength, shipCells, horizontal);
+
 
         System.out.println(ship.toString());
         System.out.println(shipCells.toString());
