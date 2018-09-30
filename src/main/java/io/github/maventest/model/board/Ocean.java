@@ -6,6 +6,7 @@ import io.github.maventest.model.unit.TwoDeckShip;
 import io.github.maventest.model.unit.Unit;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private final int SIZE_W = 10;
@@ -15,6 +16,7 @@ public class Ocean implements Board {
     private int boardCells[][] = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
+
 
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
@@ -29,6 +31,8 @@ public class Ocean implements Board {
             }
         }
     }
+
+
 
     @Override
     public void print() {
@@ -60,19 +64,47 @@ public class Ocean implements Board {
 
         if (boats.isEmpty()) {
             boats.put(shipCells, ship);
-            return;
-        }
-        else{
+            return;}
+        /*} else{
 
-        }
+          boats.containsKey(shipCells)
+
+
+
+        }*/
         //System.out.println(boats.containsKey(),boats.containsValue());
 
+
     }
+
+    public void afterInit(int w, int h){
+        int randomW11 = w;
+        int randomH11 = h;
+        int randomW = 1;
+        int randomH = 1;
+
+        int random[][] = new int[10][10];
+        random[randomW][randomH]= 1;
+
+        for (int i = 0; i < SIZE_H; i++) {
+            for (int j = 0; j < SIZE_W; j++) {
+                if(boardCells[i][j] == random[randomW][randomH]){
+                    boardCells[i][j] = 1;
+                    this.print();
+                }
+            }
+        }
+
+    }
+
+
 
     private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
    // private CellSet<Cell>  generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
+
+
 
         for (int i = 0; i < shipLength; i++) {
             Cell cell = new Cell(randomW, randomH);
@@ -85,8 +117,8 @@ public class Ocean implements Board {
                                 cell.setCoordinateX(randomW);
                                 cell.setCoordinateY(randomH);
                                 randomH ++;
-                                System.out.print(cell.getCoordinateX());
-                                System.out.print(cell.getCoordinateY());
+                                System.out.print(cell.getCoordinateX() );
+                                System.out.print(cell.getCoordinateY() );
                         } else {
                                 System.out.println("false ");
                                 cell.setCoordinateX(randomW);
@@ -106,6 +138,7 @@ public class Ocean implements Board {
 //        }
 
                 cells.add(cell);
+                this.afterInit(randomW,randomH);
             }
         }
         //return cells;
@@ -122,6 +155,10 @@ public class Ocean implements Board {
         return status;
     }
 
+
+
+
+
 //    public boolean isOccupied(Ship Boat) {
 //        if (this.units.contains(Boat)) {
 //            System.out.println("Cells with ships");
@@ -135,7 +172,11 @@ public class Ocean implements Board {
 //    }
 
     public void printUnits() {
-        units.forEach(System.out::print);
+        //units.forEach(System.out::print);
+        for (Unit unit : units) {
+            System.out.print(unit);
+        }
+
     }
 
 

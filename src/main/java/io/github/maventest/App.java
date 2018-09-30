@@ -12,6 +12,8 @@ public class App {
         //board.placeUnit("TwoDeckShip");
         board.placeUnit("TwoDeckShip");
         ((Ocean) board).printUnits();
+        board.print();
+
     }
 
 }
