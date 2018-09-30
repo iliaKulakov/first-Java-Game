@@ -15,7 +15,6 @@ public class Ocean implements Board {
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
 
-
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
     }
@@ -55,6 +54,10 @@ public class Ocean implements Board {
         // this.generateCell(shipLength, shipCells, horizontal)
         this.generateCell(shipLength, shipCells, horizontal);
 
+        shipCells.forEach(cell -> {
+            boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = 1;
+        });
+
         System.out.println(ship.toString());
         System.out.println(shipCells.toString());
 
@@ -75,26 +78,6 @@ public class Ocean implements Board {
 
     }
 
-    public void afterInit(int w, int h) {
-        int randomW11 = w;
-        int randomH11 = h;
-        int randomW = 1;
-        int randomH = 1;
-
-        int random[][] = new int[10][10];
-        random[randomW][randomH] = 1;
-
-        for (int i = 0; i < SIZE_H; i++) {
-            for (int j = 0; j < SIZE_W; j++) {
-                if (boardCells[i][j] == random[randomW][randomH]) {
-                    boardCells[i][j] = 1;
-                    this.print();
-                }
-            }
-        }
-
-    }
-
 
     private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
         // private CellSet<Cell>  generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
@@ -109,19 +92,13 @@ public class Ocean implements Board {
             } else {
 
                 if (horizontal) {
-                    System.out.println("true ");
-                    cell.setCoordinateX(randomW);
-                    cell.setCoordinateY(randomH);
+                    System.out.println("horizontal ");
+                    cell.updateCoordinates(randomH, randomW);
                     randomH++;
-                    System.out.print(cell.getCoordinateX());
-                    System.out.print(cell.getCoordinateY());
                 } else {
-                    System.out.println("false ");
-                    cell.setCoordinateX(randomW);
-                    cell.setCoordinateY(randomH);
+                    System.out.println("vertical ");
+                    cell.updateCoordinates(randomH, randomW);
                     randomW++;
-                    System.out.print(cell.getCoordinateX());
-                    System.out.print(cell.getCoordinateY());
                 }
 //                TODO: Проверка на горизонтальность
                 //        int x = cellsArray[0].getCoordinateX();
@@ -134,7 +111,6 @@ public class Ocean implements Board {
 //        }
 
                 cells.add(cell);
-                this.afterInit(randomW, randomH);
             }
         }
         //return cells;

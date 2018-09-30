@@ -6,11 +6,10 @@ import io.github.maventest.model.board.Ocean;
 public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
-
         board.init();
-        board.print();
-        //board.placeUnit("TwoDeckShip");
+        
         board.placeUnit("TwoDeckShip");
+
         ((Ocean) board).printUnits();
         board.print();
 

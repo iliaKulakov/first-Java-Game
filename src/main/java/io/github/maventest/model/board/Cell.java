@@ -23,7 +23,12 @@ public final class Cell implements Comparable {
         return coordinateY;
     }
 
-    public void setCoordinateY(int coordinateY) {
+    public void setCoordinateY(int coordinateX) {
+        this.coordinateY = coordinateY;
+    }
+
+    public void updateCoordinates(int coordinateX, int coordinateY) {
+        this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
     }
 
