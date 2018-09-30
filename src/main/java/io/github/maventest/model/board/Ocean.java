@@ -2,11 +2,9 @@ package io.github.maventest.model.board;
 
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.unit.Ship;
-import io.github.maventest.model.unit.TwoDeckShip;
 import io.github.maventest.model.unit.Unit;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private final int SIZE_W = 10;
@@ -33,7 +31,6 @@ public class Ocean implements Board {
     }
 
 
-
     @Override
     public void print() {
         for (int i = 0; i < SIZE_H; i++) {
@@ -55,7 +52,7 @@ public class Ocean implements Board {
         CellSet<Cell> shipCells = new CellSet<>();
 
 //      TODO: Сформировать координаты отностительно занятости и позции
-       // this.generateCell(shipLength, shipCells, horizontal)
+        // this.generateCell(shipLength, shipCells, horizontal)
         this.generateCell(shipLength, shipCells, horizontal);
 
         System.out.println(ship.toString());
@@ -64,7 +61,8 @@ public class Ocean implements Board {
 
         if (boats.isEmpty()) {
             boats.put(shipCells, ship);
-            return;}
+            return;
+        }
         /*} else{
 
           boats.containsKey(shipCells)
@@ -77,18 +75,18 @@ public class Ocean implements Board {
 
     }
 
-    public void afterInit(int w, int h){
+    public void afterInit(int w, int h) {
         int randomW11 = w;
         int randomH11 = h;
         int randomW = 1;
         int randomH = 1;
 
         int random[][] = new int[10][10];
-        random[randomW][randomH]= 1;
+        random[randomW][randomH] = 1;
 
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
-                if(boardCells[i][j] == random[randomW][randomH]){
+                if (boardCells[i][j] == random[randomW][randomH]) {
                     boardCells[i][j] = 1;
                     this.print();
                 }
@@ -98,12 +96,10 @@ public class Ocean implements Board {
     }
 
 
-
     private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
-   // private CellSet<Cell>  generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
+        // private CellSet<Cell>  generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) {
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
-
 
 
         for (int i = 0; i < shipLength; i++) {
@@ -112,21 +108,21 @@ public class Ocean implements Board {
                 this.generateCell(shipLength, cells, horizontal);
             } else {
 
-                        if (horizontal){
-                                System.out.println("true ");
-                                cell.setCoordinateX(randomW);
-                                cell.setCoordinateY(randomH);
-                                randomH ++;
-                                System.out.print(cell.getCoordinateX() );
-                                System.out.print(cell.getCoordinateY() );
-                        } else {
-                                System.out.println("false ");
-                                cell.setCoordinateX(randomW);
-                                cell.setCoordinateY(randomH);
-                                randomW ++;
-                                System.out.print(cell.getCoordinateX() );
-                                System.out.print(cell.getCoordinateY() );
-                        }
+                if (horizontal) {
+                    System.out.println("true ");
+                    cell.setCoordinateX(randomW);
+                    cell.setCoordinateY(randomH);
+                    randomH++;
+                    System.out.print(cell.getCoordinateX());
+                    System.out.print(cell.getCoordinateY());
+                } else {
+                    System.out.println("false ");
+                    cell.setCoordinateX(randomW);
+                    cell.setCoordinateY(randomH);
+                    randomW++;
+                    System.out.print(cell.getCoordinateX());
+                    System.out.print(cell.getCoordinateY());
+                }
 //                TODO: Проверка на горизонтальность
                 //        int x = cellsArray[0].getCoordinateX();
 //        int y = cellsArray[0].getCoordinateY();
@@ -138,7 +134,7 @@ public class Ocean implements Board {
 //        }
 
                 cells.add(cell);
-                this.afterInit(randomW,randomH);
+                this.afterInit(randomW, randomH);
             }
         }
         //return cells;
@@ -154,9 +150,6 @@ public class Ocean implements Board {
         }
         return status;
     }
-
-
-
 
 
 //    public boolean isOccupied(Ship Boat) {

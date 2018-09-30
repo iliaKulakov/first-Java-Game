@@ -5,17 +5,15 @@ import io.github.maventest.model.board.Cell;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class TwoDeckShip extends Boat implements Ship {
 
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
+    int size = 2;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
-    int size=2;
-
 
     @Override
     public boolean getIsHorizontal() {
@@ -39,7 +37,7 @@ public class TwoDeckShip extends Boat implements Ship {
     }
 
     //public List<Cell>[] getCellsArray() {
-     //   return cellsArray;
+    //   return cellsArray;
     //}
 
     @Override
@@ -49,7 +47,7 @@ public class TwoDeckShip extends Boat implements Ship {
 
     @Override
     public int getSize() {
-        return  size;
+        return size;
     }
 
    /* @Override
