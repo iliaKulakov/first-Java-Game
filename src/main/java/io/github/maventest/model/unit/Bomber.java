@@ -15,7 +15,7 @@ public class Bomber implements Airplane {
     }
 
     @Override
-    public void setPosition(Cell... cells) {
+    public void setPosition(Boolean horizontal, Cell... cells) {
 
     }
 
@@ -23,4 +23,15 @@ public class Bomber implements Airplane {
     public Cell getCell() {
         return null;
     }
+
+    @Override
+    public String getShipType() {
+        return null;
+    }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
+    }
+
 }

@@ -1,7 +1,5 @@
 package io.github.maventest.model.board;
 
-import io.github.maventest.model.unit.Ship;
-
 public class Sky implements Board {
 
     @Override
@@ -15,17 +13,15 @@ public class Sky implements Board {
     }
 
     @Override
-    public void placeUnit() {
+    public void placeUnit(String shipType) {
 
     }
 
-    @Override
-    public boolean isOccupied(Ship boat) {
-        return false;
-    }
+    //@Override
+    // public boolean isOccupied(Ship boat) {
+    //    return false;
+    //}
 
-    @Override
-    public void placeTwoUnit() {
 
-    }
 }
+

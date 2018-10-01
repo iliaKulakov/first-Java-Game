@@ -8,8 +8,12 @@ public interface Unit {
 
     int getSize();
 
-    void setPosition(Cell... cells);
+    void setPosition(Boolean horizontal, Cell... cells);
 
     public Cell getCell();
+
+    public String getShipType();
+
+    boolean getIsHorizontal();
 
 }

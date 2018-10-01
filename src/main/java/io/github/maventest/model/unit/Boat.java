@@ -2,8 +2,6 @@ package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
 
-import java.util.List;
-
 public class Boat implements Ship {
 
     private Cell cell;
@@ -18,11 +16,6 @@ public class Boat implements Ship {
         return 1;
     }
 
-    @Override
-    public void setPosition(Cell... cells) {
-        this.cell = cells[0];
-    }
-
     public Cell getCell() {
         return cell;
     }
@@ -34,4 +27,18 @@ public class Boat implements Ship {
                 '}';
     }
 
+    @Override
+    public String getShipType() {
+        return null;
+    }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
+    }
+
+    @Override
+    public void setPosition(Boolean horizontal, Cell... cells) {
+        this.cell = cells[0];
+    }
 }

@@ -1,7 +1,6 @@
 package io.github.maventest.model.board;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class CellSet<Cell> extends HashSet<Cell> {
 

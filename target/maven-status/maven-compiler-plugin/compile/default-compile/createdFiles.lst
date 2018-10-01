@@ -1,0 +1,16 @@
+io/github/maventest/App.class
+io/github/maventest/factory/ShipFactory.class
+io/github/maventest/model/unit/Bomber.class
+io/github/maventest/model/unit/Submarine.class
+io/github/maventest/model/unit/Airplane.class
+io/github/maventest/model/unit/Boat.class
+io/github/maventest/model/board/Cell.class
+io/github/maventest/model/unit/TwoDeckShip.class
+io/github/maventest/model/unit/Ship.class
+io/github/maventest/model/unit/Unit.class
+io/github/maventest/model/board/Land.class
+io/github/maventest/model/board/Sky.class
+io/github/maventest/model/board/CellSet.class
+io/github/maventest/model/board/Ocean.class
+io/github/maventest/model/board/Board.class
+io/github/maventest/model/unit/Karas.class

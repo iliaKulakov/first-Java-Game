@@ -15,12 +15,22 @@ public class Karas implements Submarine {
     }
 
     @Override
-    public void setPosition(Cell... cells) {
+    public void setPosition(Boolean horizontal, Cell... cells) {
 
     }
 
     @Override
     public Cell getCell() {
         return null;
+    }
+
+    @Override
+    public String getShipType() {
+        return null;
+    }
+
+    @Override
+    public boolean getIsHorizontal() {
+        return false;
     }
 }

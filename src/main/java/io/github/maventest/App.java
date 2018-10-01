@@ -6,33 +6,14 @@ import io.github.maventest.model.board.Ocean;
 public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
-
         board.init();
-        board.print();
-
-        //board.placeUnit();
-        board.placeTwoUnit();
-        board.placeTwoUnit();
-        /*board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();
-        board.placeUnit();*/
-
-       // board.isOccupied();
+        
+        board.placeUnit("TwoDeckShip");
 
         ((Ocean) board).printUnits();
+        board.print();
+
+
     }
 
 }

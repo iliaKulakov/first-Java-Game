@@ -1,43 +1,44 @@
 package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TwoDeckShip implements Ship{
+public class TwoDeckShip extends Boat implements Ship {
 
-    Cell[] cellsArray= new Cell[2];
     public int numOfHits;
     public int maxHitAllowed;
     public boolean isAlive = true;
-    boolean isHorizontal = true;
+    int size = 2;
+    private List<Cell> cellsArray = new ArrayList<>();
+    private boolean isHorizontal = true;
 
     @Override
-    public void setPosition(Cell... cells) {
-        this.cellsArray[0] = cells[0];
-        int x = cellsArray[0].getCoordinateX();
-        int y = cellsArray[0].getCoordinateY();
+    public boolean getIsHorizontal() {
+        return isHorizontal;
+    }
 
-        cellsArray[1] = new Cell(x,y+1);}
+    @Override
+    public String getShipType() {
+        return "TwoDeckShip";
+    }
 
-       /* for (int i = 0; i < 2; i++) {
-            if (horizontal) {
-                i++;
-            //    cellsArray1[1].setCoordinateX( cellsArray[1].getCoordinateX()+1);
-            } else {
-                //grid[row + i][column] = this;
-            }
-        }*/
+    @Override
+    public void setPosition(Boolean horizontal, Cell... cells) {
+        this.isHorizontal = horizontal;
+        this.cellsArray.addAll(Arrays.asList(cells));
+    }
 
     @Override
     public Cell getCell() {
         return null;
     }
 
-    public Cell[] getCellsArray() {
-        return cellsArray;
-    }
-
+    //public List<Cell>[] getCellsArray() {
+    //   return cellsArray;
+    //}
 
     @Override
     public boolean shot() {
@@ -46,15 +47,16 @@ public class TwoDeckShip implements Ship{
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return "TwoDeckShip{" +
                 "cellsArray=" + Arrays.toString(cellsArray) +
                 '}';
-    }
+    }*/
+
 }
 
 

@@ -15,16 +15,20 @@ public final class Cell implements Comparable {
         return coordinateX;
     }
 
-    public int getCoordinateY() {
-        return coordinateY;
-    }
-
-
     public void setCoordinateX(int coordinateX) {
         this.coordinateX = coordinateX;
     }
 
-    public void setCoordinateY(int coordinateY) {
+    public int getCoordinateY() {
+        return coordinateY;
+    }
+
+    public void setCoordinateY(int coordinateX) {
+        this.coordinateY = coordinateY;
+    }
+
+    public void updateCoordinates(int coordinateX, int coordinateY) {
+        this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
     }
 
