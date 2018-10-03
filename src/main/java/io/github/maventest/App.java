@@ -9,7 +9,7 @@ public class App {
         board.init();
         
         board.placeUnit("TwoDeckShip");
-        board.placeUnit("TwoDeckShip");
+       // board.placeUnit("TwoDeckShip");
       //  board.placeUnit("TwoDeckShip");
       //  board.placeUnit("TwoDeckShip");
       //  board.placeUnit("TwoDeckShip");

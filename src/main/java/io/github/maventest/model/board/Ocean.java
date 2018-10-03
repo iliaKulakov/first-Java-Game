@@ -67,36 +67,16 @@ public class Ocean implements Board {
     }
 
     private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) throws StackOverflowError {
+        boolean  isOccupiedVariable = true;
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
-            //trying to create iterative realisation
-          //  for (int i = 0; i < shipLength; i++) {
-           while(shipLength>0){
-               Cell cell = new Cell(randomW, randomH);
 
-               if (!isOccupied(cells))
-               {
-                   if (horizontal) {
-                       System.out.println("horizontal ");
-                       cell.updateCoordinates(randomH, randomW);
-                       randomH++;
-                   } else {
-                       System.out.println("vertical ");
-                       cell.updateCoordinates(randomH, randomW);
-                       randomW++;
-                   }
+            for (int i = 0; i < shipLength; i++) {
+                Cell cell = new Cell(randomW, randomH);
 
-               } else
-               {continue;}
-               shipLength=shipLength-1;
-           }
-
-
-
-            /*
-            if (isOccupied(cells)) {
-                this.generateCell(shipLength, cells, horizontal);
-            } else {
+                while (isOccupiedVariable) {
+                isOccupiedVariable = isOccupied(cells);
+                }
 
                 if (horizontal) {
                     System.out.println("horizontal ");
@@ -107,14 +87,11 @@ public class Ocean implements Board {
                     cell.updateCoordinates(randomH, randomW);
                     randomW++;
                 }
-//                TODO: Проверка на горизонтальность
+
                 cells.add(cell);
+                isOccupiedVariable = true;
             }
-        //*///}
-    }
-
-
-
+        }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {
         boolean status=false;
@@ -127,14 +104,11 @@ public class Ocean implements Board {
                     break;
                 }
                 } catch ( StackOverflowError t) {
-                   // System.out.println("Error: " + t.getMessage());
-                  //  t.printStackTrace();
+
                 }
             }
         }//try
         catch (StackOverflowError e){
-          //  System.out.println("Error: " + e.getMessage());
-           // System.out.println("Error: " + e.getStackTrace());
             throw e;
         }
         return status;
@@ -142,14 +116,10 @@ public class Ocean implements Board {
 
 
     public void printUnits() {
-        //units.forEach(System.out::print);
         for (Unit unit : units) {
             System.out.print(unit);
         }
-
     }
-
-
 }
 
 
