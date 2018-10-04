@@ -71,6 +71,7 @@ public class Ocean implements Board {
         int randomW = randomGenerator.nextInt(SIZE_W);
         int randomH = randomGenerator.nextInt(SIZE_H);
 
+
             for (int i = 0; i < shipLength; i++) {
                 Cell cell = new Cell(randomW, randomH);
 
