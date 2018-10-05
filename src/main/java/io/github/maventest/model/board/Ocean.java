@@ -4,7 +4,6 @@ import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.unit.Ship;
 import io.github.maventest.model.unit.Unit;
 
-
 import java.util.*;
 
 public class Ocean implements Board {
@@ -49,69 +48,64 @@ public class Ocean implements Board {
         CellSet<Cell> shipCells = new CellSet<>();
 
 //      TODO: Сформировать координаты отностительно занятости и позции
-        this.generateCell(shipLength, shipCells, horizontal);
+        shipCells = this.generateCell(shipLength, horizontal);
 
         for (Cell cell : shipCells) {
             boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = 1;
         }
 
-        System.out.println(ship.toString());
-        System.out.println(shipCells.toString());
+        ship.setPosition(horizontal, shipCells.toArray(new Cell[shipCells.size()]));
 
-
-        if (boats.isEmpty()) {
-            boats.put(shipCells, ship);
-            return;
-        }
+        boats.put(shipCells, ship);
 
     }
 
-    private void generateCell(int shipLength, CellSet<Cell> cells, boolean horizontal) throws StackOverflowError {
-        boolean  isOccupiedVariable = true;
-        int randomW = randomGenerator.nextInt(SIZE_W);
-        int randomH = randomGenerator.nextInt(SIZE_H);
+    private CellSet<Cell> generateCell(int shipLength, boolean horizontal) {
 
+        CellSet<Cell> localCells = getRandomCells(shipLength, horizontal);
 
-            for (int i = 0; i < shipLength; i++) {
-                Cell cell = new Cell(randomW, randomH);
-
-                while (isOccupiedVariable) {
-                isOccupiedVariable = isOccupied(cells);
-                }
-
-                if (horizontal) {
-                    System.out.println("horizontal ");
-                    cell.updateCoordinates(randomH, randomW);
-                    randomH++;
-                } else {
-                    System.out.println("vertical ");
-                    cell.updateCoordinates(randomH, randomW);
-                    randomW++;
-                }
-
-                cells.add(cell);
-                isOccupiedVariable = true;
-            }
+        if (isOccupied(localCells)) {
+            generateCell(shipLength, horizontal);
         }
+
+        return localCells;
+
+    }
+
+    private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) {
+        CellSet<Cell> cells = new CellSet<>();
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_H - 1);
+
+        for (int i = 0; i < shipLength; i++) {
+            Cell cell = new Cell(randomW, randomH);
+
+            if (horizontal) {
+                System.out.println("horizontal ");
+                cell.updateCoordinates(randomH, randomW);
+                randomH++;
+            } else {
+                System.out.println("vertical ");
+                cell.updateCoordinates(randomH, randomW);
+                randomW++;
+            }
+
+
+            cells.add(cell);
+        }
+
+        return cells;
+    }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {
-        boolean status=false;
-        try {
-            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-
-                try{
-                    if (!cells.contains(item.getKey())) {
-                    status = true;
-                    break;
-                }
-                } catch ( StackOverflowError t) {
-
-                }
+        boolean status = false;
+        for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+            if (cells.contains(item.getKey())) {
+                status = true;
+                break;
             }
-        }//try
-        catch (StackOverflowError e){
-            throw e;
         }
+
         return status;
     }
 

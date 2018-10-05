@@ -2,9 +2,13 @@ package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Boat implements Ship {
 
-    private Cell cell;
+    private List<Cell> cell = new ArrayList<>();
 
     @Override
     public boolean shot() {
@@ -16,7 +20,7 @@ public class Boat implements Ship {
         return 1;
     }
 
-    public Cell getCell() {
+    public List<Cell> getCell() {
         return cell;
     }
 
@@ -39,6 +43,6 @@ public class Boat implements Ship {
 
     @Override
     public void setPosition(Boolean horizontal, Cell... cells) {
-        this.cell = cells[0];
+        this.cell.addAll(Arrays.asList(cells));
     }
 }

@@ -7,18 +7,18 @@ public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
         board.init();
-        
+
         board.placeUnit("TwoDeckShip");
-       // board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
-      //  board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+//          board.placeUnit("TwoDeckShip");
+//          board.placeUnit("TwoDeckShip");
+//          board.placeUnit("TwoDeckShip");
+//          board.placeUnit("TwoDeckShip");
+//          board.placeUnit("TwoDeckShip");
 
         ((Ocean) board).printUnits();
         board.print();
