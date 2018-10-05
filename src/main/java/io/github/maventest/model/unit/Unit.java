@@ -2,6 +2,8 @@ package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
 
+import java.util.List;
+
 public interface Unit {
 
     boolean shot();
@@ -10,9 +12,9 @@ public interface Unit {
 
     void setPosition(Boolean horizontal, Cell... cells);
 
-    public Cell getCell();
+    List<Cell> getCell();
 
-    public String getShipType();
+    String getShipType();
 
     boolean getIsHorizontal();
 

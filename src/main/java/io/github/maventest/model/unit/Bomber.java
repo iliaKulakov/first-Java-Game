@@ -2,6 +2,8 @@ package io.github.maventest.model.unit;
 
 import io.github.maventest.model.board.Cell;
 
+import java.util.List;
+
 public class Bomber implements Airplane {
 
     @Override
@@ -20,7 +22,7 @@ public class Bomber implements Airplane {
     }
 
     @Override
-    public Cell getCell() {
+    public List<Cell> getCell() {
         return null;
     }
 

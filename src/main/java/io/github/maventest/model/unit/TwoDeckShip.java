@@ -6,11 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TwoDeckShip extends Boat implements Ship {
+public class TwoDeckShip implements Ship {
 
-    public int numOfHits;
-    public int maxHitAllowed;
-    public boolean isAlive = true;
     int size = 2;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
@@ -32,13 +29,9 @@ public class TwoDeckShip extends Boat implements Ship {
     }
 
     @Override
-    public Cell getCell() {
-        return null;
+    public List<Cell> getCell() {
+        return this.cellsArray;
     }
-
-    //public List<Cell>[] getCellsArray() {
-    //   return cellsArray;
-    //}
 
     @Override
     public boolean shot() {
@@ -49,13 +42,6 @@ public class TwoDeckShip extends Boat implements Ship {
     public int getSize() {
         return size;
     }
-
-   /* @Override
-    public String toString() {
-        return "TwoDeckShip{" +
-                "cellsArray=" + Arrays.toString(cellsArray) +
-                '}';
-    }*/
 
 }
 
