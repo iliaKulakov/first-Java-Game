@@ -52,7 +52,10 @@ public class Ocean implements Board {
 
         try {
             for (Cell cell : shipCells) {
-                boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = 1;
+
+                boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = shipLength;
+
+
             }
         } catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -73,36 +76,34 @@ public class Ocean implements Board {
         }
 
         return localCells;
-
     }
 
-    private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) {
+    private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) throws ArrayIndexOutOfBoundsException {
         CellSet<Cell> cells = new CellSet<>();
-
-
 
         int  randomW = randomGenerator.nextInt(SIZE_W - 1);
         int  randomH = randomGenerator.nextInt(SIZE_H - 1);
 
-
-        if (okPlaceToShip(randomW,randomW,shipLength,horizontal)) {
+        if (okPlaceToShip(randomW,randomH,shipLength,horizontal)) {
             for (int i = 0; i < shipLength; i++) {
 
-                Cell cell = new Cell(randomW-1, randomH-1);
+                Cell cell = new Cell(randomW, randomH);
 
                 if (horizontal) {
                     System.out.println("horizontal ");
-                    cell.updateCoordinates(randomH, randomW);
+                    cell.updateCoordinates(randomW, randomH);
 
-                    randomH++;
+                    randomW++;
 
                 } else {
                     System.out.println("vertical ");
-                    cell.updateCoordinates(randomH, randomW);
-                    randomW++;
+                    cell.updateCoordinates(randomW, randomH);
+
+                    randomH++;
+
                 }
                 cells.add(cell);
-            }
+            }//for
             return cells;
         } else {
             getRandomCells(shipLength,horizontal);
@@ -138,23 +139,17 @@ public class Ocean implements Board {
 
 
         if(horizontal){
-
-          //  if(W - shipLengthVar == 0||W < shipLengthVar){
               if(W <= shipLengthVar){
-           // if ((W + shipLengthVar) > SIZE_W - 1 ){
                 return true;
-            } else {return  false;}
+            } else
+                {return false;}
 
         } else
-
-     //  if(H - shipLengthVar == 0||H - shipLengthVar > 0){
-        //    if ((H + shipLengthVar) > SIZE_H - 1 ){
             if(H <= shipLengthVar){
             return true;
         } else {return  false;}
+        }
     }
-
-}
 
 
 
