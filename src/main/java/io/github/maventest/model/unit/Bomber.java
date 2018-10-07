@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Bomber implements Airplane, Ship {
+public class Bomber implements Ship {
 
     int size = 5;
     private List<Cell> cellsArray = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Bomber implements Airplane, Ship {
     }
 
     @Override
-    public List<Cell> getCell() {
+    public List<Cell> getCells() {
         return this.cellsArray;
     }
 
@@ -45,9 +45,10 @@ public class Bomber implements Airplane, Ship {
 
     @Override
     public String toString() {
+        String cells = cellsArray.stream().map(e -> e.toString()).reduce(" ", String::concat);
         return "Bomber{" +
                 "size=" + size +
-                ", cellsArray=" + cellsArray +
+                ", cellsArray=" + cells +
                 ", isHorizontal=" + isHorizontal +
                 '}';
     }

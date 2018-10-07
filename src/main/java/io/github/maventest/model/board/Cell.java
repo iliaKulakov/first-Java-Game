@@ -49,7 +49,7 @@ public final class Cell implements Comparable {
 
     @Override
     public String toString() {
-        return "Cell{" +
+        return "Cell {" +
                 "coordinateX=" + coordinateX +
                 ", coordinateY=" + coordinateY +
                 '}';

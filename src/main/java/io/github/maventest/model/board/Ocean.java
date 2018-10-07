@@ -1,6 +1,7 @@
 package io.github.maventest.model.board;
 
 import io.github.maventest.factory.ShipFactory;
+import io.github.maventest.model.ShipPrinter;
 import io.github.maventest.model.unit.Ship;
 import io.github.maventest.model.unit.Unit;
 
@@ -15,6 +16,7 @@ public class Ocean implements Board {
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
+    private final ShipPrinter PRINTER = new ShipPrinter();
 
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
@@ -28,6 +30,8 @@ public class Ocean implements Board {
                 boardCells[i][j] = 0;
             }
         }
+
+//        TODO: Расставить корабли
     }
 
     @Override
@@ -66,12 +70,15 @@ public class Ocean implements Board {
 
         occupiedCells.addAll(shipCells);
         boats.put(shipCells, ship);
-        System.out.println(ship);
+        PRINTER.printShip(ship);
+
     }
 
     private CellSet<Cell> generateCell(int shipLength, boolean horizontal) {
 
-        CellSet<Cell> localCells = getRandomCells(shipLength, horizontal);
+        CellSet<Cell> cells = new CellSet<>();
+
+        CellSet<Cell> localCells = getRandomCells(shipLength, horizontal, cells);
 
         if (isOccupiedCells(localCells)) {
             generateCell(shipLength, horizontal);
@@ -80,8 +87,7 @@ public class Ocean implements Board {
         return localCells;
     }
 
-    private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) throws ArrayIndexOutOfBoundsException {
-        CellSet<Cell> cells = new CellSet<>();
+    private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal, CellSet<Cell> cells) throws ArrayIndexOutOfBoundsException {
 
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_H - 1);
@@ -92,13 +98,13 @@ public class Ocean implements Board {
                 Cell cell = new Cell(randomW, randomH);
 
                 if (horizontal) {
-                    System.out.println("horizontal ");
+//                    System.out.println("horizontal ");
                     cell.updateCoordinates(randomW, randomH);
 
                     randomW++;
 
                 } else {
-                    System.out.println("vertical ");
+//                    System.out.println("vertical ");
                     cell.updateCoordinates(randomW, randomH);
 
                     randomH++;
@@ -107,7 +113,7 @@ public class Ocean implements Board {
             }//for
             //return cells;
         } else {
-            getRandomCells(shipLength, horizontal);
+            getRandomCells(shipLength, horizontal, cells);
 
         }
         return cells;

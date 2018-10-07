@@ -21,14 +21,16 @@ public class Boat implements Ship {
         return 1;
     }
 
-    public List<Cell> getCell() {
+    public List<Cell> getCells() {
         return cell;
     }
 
     @Override
     public String toString() {
+        String cells = cell.stream().map(e -> e.toString()).reduce(" ", String::concat);
+
         return "Boat{" +
-                "cell=" + cell +
+                "cell=" + cells +
                 '}';
     }
 

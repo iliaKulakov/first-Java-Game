@@ -5,6 +5,7 @@ import io.github.maventest.model.board.Cell;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TwoDeckShip implements Ship {
 
@@ -29,7 +30,7 @@ public class TwoDeckShip implements Ship {
     }
 
     @Override
-    public List<Cell> getCell() {
+    public List<Cell> getCells() {
         return this.cellsArray;
     }
 
@@ -43,6 +44,16 @@ public class TwoDeckShip implements Ship {
         return size;
     }
 
+    @Override
+    public String toString() {
+        String cells = cellsArray.stream().map(e -> e.toString()).reduce(" ", String::concat);
+
+        return "TwoDeckShip{" +
+                "size=" + size +
+                ", cellsArray=" + cells +
+                ", isHorizontal=" + isHorizontal +
+                '}';
+    }
 }
 
 
