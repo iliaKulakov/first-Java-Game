@@ -12,7 +12,7 @@ public interface Unit {
 
     void setPosition(Boolean horizontal, Cell... cells);
 
-    List<Cell> getCell();
+    List<Cell> getCells();
 
     String getShipType();
 

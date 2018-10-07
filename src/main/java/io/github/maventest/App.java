@@ -9,21 +9,22 @@ public class App {
         board.init();
         board.placeUnit("Boat");
         board.placeUnit("TwoDeckShip");
-        board.placeUnit("TwoDeckShip");
-        board.placeUnit("Karas");
         board.placeUnit("Karas");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
+
         board.placeUnit("Bomber");
+
         board.placeUnit("Bomber");
-       // board.placeUnit("TwoDeckShip");
+        // board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         ///board.placeUnit("TwoDeckShip");
-       // board.placeUnit("TwoDeckShip");
-       // board.placeUnit("Karas");
+        // board.placeUnit("TwoDeckShip");
+        // board.placeUnit("Karas");
+
 
         ((Ocean) board).printUnits();
         board.print();
