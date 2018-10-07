@@ -103,13 +103,12 @@ public class Ocean implements Board {
                 }
                 cells.add(cell);
             }
+            return cells;
         } else {
             getRandomCells(shipLength,horizontal);
+            return cells;
         }
 
-            //return cells;
-
-     return cells;
     }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {

@@ -7,14 +7,14 @@ public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
         board.init();
+        board.placeUnit("Boat");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("Karas");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
+
        // board.placeUnit("Bomber");
         //board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
