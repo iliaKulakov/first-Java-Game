@@ -43,4 +43,12 @@ public class Bomber implements Airplane,Ship {
         return size;
     }
 
+    @Override
+    public String toString() {
+        return "Bomber{" +
+                "size=" + size +
+                ", cellsArray=" + cellsArray +
+                ", isHorizontal=" + isHorizontal +
+                '}';
+    }
 }

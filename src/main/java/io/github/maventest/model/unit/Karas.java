@@ -43,4 +43,14 @@ public class Karas implements Submarine, Ship{
     public int getSize() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "Karas{" +
+                "size=" + size +
+                ", cellsArray=" + cellsArray +
+                ", isHorizontal=" + isHorizontal +
+                '}';
+    }
+
 }
