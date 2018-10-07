@@ -1,8 +1,6 @@
 package io.github.maventest.factory;
 
-import io.github.maventest.model.unit.Boat;
-import io.github.maventest.model.unit.Ship;
-import io.github.maventest.model.unit.TwoDeckShip;
+import io.github.maventest.model.unit.*;
 
 public class ShipFactory {
 
@@ -19,13 +17,19 @@ public class ShipFactory {
     }
 
     // public Boat getShip(String name) {
-    public Ship getShip(String name) {
-        switch (name) {
+    public Ship getShip(String shipName) {
+        switch (shipName) {
             case "Boat":
                 return new Boat();
 
             case "TwoDeckShip":
                 return new TwoDeckShip();
+
+            case "Karas":
+                return new Karas();
+
+            case "Bomber":
+                return new Bomber();
 
             default:
                 return new Boat(); //need to fix

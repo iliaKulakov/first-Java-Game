@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//Boat 1 size
 public class Boat implements Ship {
 
     private List<Cell> cell = new ArrayList<>();

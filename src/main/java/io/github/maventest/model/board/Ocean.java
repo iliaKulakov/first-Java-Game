@@ -40,7 +40,7 @@ public class Ocean implements Board {
     }
 
     @Override
-    public void placeUnit(String shipType) {
+    public void placeUnit(String shipType) throws ArrayIndexOutOfBoundsException {
 
         Ship ship = this.shipFactory.getShip(shipType);
         boolean horizontal = randomGenerator.nextBoolean();
@@ -50,8 +50,12 @@ public class Ocean implements Board {
 //      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
 
-        for (Cell cell : shipCells) {
-            boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = 1;
+        try {
+            for (Cell cell : shipCells) {
+                boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = 1;
+            }
+        } catch (ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
         }
 
         ship.setPosition(horizontal, shipCells.toArray(new Cell[shipCells.size()]));
@@ -77,24 +81,30 @@ public class Ocean implements Board {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_H - 1);
 
-        for (int i = 0; i < shipLength; i++) {
-            Cell cell = new Cell(randomW, randomH);
 
-            if (horizontal) {
-                System.out.println("horizontal ");
-                cell.updateCoordinates(randomH, randomW);
-                randomH++;
-            } else {
-                System.out.println("vertical ");
-                cell.updateCoordinates(randomH, randomW);
-                randomW++;
+        if (okPlaceToShip(randomW,randomW,shipLength,horizontal)) {
+            for (int i = 0; i < shipLength; i++) {
+
+                Cell cell = new Cell(randomW, randomH);
+
+                if (horizontal) {
+                    System.out.println("horizontal ");
+                    cell.updateCoordinates(randomH, randomW);
+                    randomH++;
+                } else {
+                    System.out.println("vertical ");
+                    cell.updateCoordinates(randomH, randomW);
+                    randomW++;
+                }
+                cells.add(cell);
             }
-
-
-            cells.add(cell);
+        } else {
+            getRandomCells(shipLength,horizontal);
         }
 
-        return cells;
+            //return cells;
+
+     return cells;
     }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {
@@ -115,6 +125,29 @@ public class Ocean implements Board {
             System.out.print(unit);
         }
     }
+
+    private boolean okPlaceToShip(int randomW ,int randomH, int shipLength,boolean horizontal ){
+        int H = randomH;
+        int W = randomW;
+        int shipLengthVar = shipLength;
+        boolean horizontalVar = horizontal;
+
+
+        if(horizontal){
+
+           // if(W - shipLengthVar == 0||W - shipLengthVar > 0){
+            if ((W + shipLengthVar) > SIZE_W - 1 ){
+                return true;
+            } else {return  false;}
+
+        } else
+
+      //  if(H - shipLengthVar == 0||H - shipLengthVar > 0){
+            if ((H + shipLengthVar) > SIZE_H - 1 ){
+            return true;
+        } else {return  false;}
+    }
+
 }
 
 
