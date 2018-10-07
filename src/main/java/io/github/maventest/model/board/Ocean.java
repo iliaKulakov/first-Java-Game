@@ -78,19 +78,24 @@ public class Ocean implements Board {
 
     private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) {
         CellSet<Cell> cells = new CellSet<>();
-        int randomW = randomGenerator.nextInt(SIZE_W - 1);
-        int randomH = randomGenerator.nextInt(SIZE_H - 1);
+
+
+
+        int  randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int  randomH = randomGenerator.nextInt(SIZE_H - 1);
 
 
         if (okPlaceToShip(randomW,randomW,shipLength,horizontal)) {
             for (int i = 0; i < shipLength; i++) {
 
-                Cell cell = new Cell(randomW, randomH);
+                Cell cell = new Cell(randomW-1, randomH-1);
 
                 if (horizontal) {
                     System.out.println("horizontal ");
                     cell.updateCoordinates(randomH, randomW);
+
                     randomH++;
+
                 } else {
                     System.out.println("vertical ");
                     cell.updateCoordinates(randomH, randomW);
@@ -135,15 +140,17 @@ public class Ocean implements Board {
 
         if(horizontal){
 
-           // if(W - shipLengthVar == 0||W - shipLengthVar > 0){
-            if ((W + shipLengthVar) > SIZE_W - 1 ){
+          //  if(W - shipLengthVar == 0||W < shipLengthVar){
+              if(W <= shipLengthVar){
+           // if ((W + shipLengthVar) > SIZE_W - 1 ){
                 return true;
             } else {return  false;}
 
         } else
 
-      //  if(H - shipLengthVar == 0||H - shipLengthVar > 0){
-            if ((H + shipLengthVar) > SIZE_H - 1 ){
+     //  if(H - shipLengthVar == 0||H - shipLengthVar > 0){
+        //    if ((H + shipLengthVar) > SIZE_H - 1 ){
+            if(H <= shipLengthVar){
             return true;
         } else {return  false;}
     }
