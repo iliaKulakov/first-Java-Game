@@ -6,6 +6,7 @@ public final class Cell implements Comparable {
     private int coordinateX;
     private int coordinateY;
 
+
     public Cell(int coordinateX, int coordinateY) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;

@@ -14,6 +14,7 @@ public class Ocean implements Board {
     private int boardCells[][] = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
+    private CellSet<Cell> occupiedCells = new CellSet<>();
 
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
@@ -47,6 +48,7 @@ public class Ocean implements Board {
         int shipLength = ship.getSize();
         CellSet<Cell> shipCells = new CellSet<>();
 
+
 //      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
 
@@ -55,7 +57,6 @@ public class Ocean implements Board {
 
                 boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = shipLength;
 
-
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
@@ -63,15 +64,16 @@ public class Ocean implements Board {
 
         ship.setPosition(horizontal, shipCells.toArray(new Cell[shipCells.size()]));
 
+        occupiedCells.addAll(shipCells);
         boats.put(shipCells, ship);
-
+        System.out.println(ship);
     }
 
     private CellSet<Cell> generateCell(int shipLength, boolean horizontal) {
 
         CellSet<Cell> localCells = getRandomCells(shipLength, horizontal);
 
-        if (isOccupied(localCells)) {
+        if (isOccupiedCells(localCells)) {
             generateCell(shipLength, horizontal);
         }
 
@@ -100,27 +102,34 @@ public class Ocean implements Board {
                     cell.updateCoordinates(randomW, randomH);
 
                     randomH++;
-
                 }
                 cells.add(cell);
             }//for
-            return cells;
+            //return cells;
         } else {
             getRandomCells(shipLength, horizontal);
-            return cells;
-        }
 
+        }
+        return cells;
     }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {
         boolean status = false;
+
         for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
             if (cells.contains(item.getKey())) {
                 status = true;
                 break;
             }
         }
+        return status;
+    }
 
+    private boolean isOccupiedCells(CellSet<Cell> cells) {
+        boolean status = false;
+        if (occupiedCells.contains(cells)) {
+            status = true;
+        }
         return status;
     }
 
