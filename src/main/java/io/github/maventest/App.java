@@ -13,9 +13,7 @@ public class App {
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
         board.placeUnit("Bomber");
-
         board.placeUnit("Bomber");
-
         board.placeUnit("Bomber");
        // board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
@@ -24,8 +22,6 @@ public class App {
         ///board.placeUnit("TwoDeckShip");
        // board.placeUnit("TwoDeckShip");
        // board.placeUnit("Karas");
-
-
 
         ((Ocean) board).printUnits();
         board.print();

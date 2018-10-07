@@ -54,8 +54,6 @@ public class Ocean implements Board {
             for (Cell cell : shipCells) {
 
                 boardCells[cell.getCoordinateX()][cell.getCoordinateY()] = shipLength;
-
-
             }
         } catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -92,24 +90,21 @@ public class Ocean implements Board {
                 if (horizontal) {
                     System.out.println("horizontal ");
                     cell.updateCoordinates(randomW, randomH);
-
                     randomW++;
 
                 } else {
                     System.out.println("vertical ");
                     cell.updateCoordinates(randomW, randomH);
-
                     randomH++;
-
                 }
                 cells.add(cell);
             }//for
-            return cells;
+            //return cells;
         } else {
             getRandomCells(shipLength,horizontal);
-            return cells;
-        }
 
+        }
+        return cells;
     }
 
     private boolean isOccupied(CellSet<Cell> cells) throws StackOverflowError {
@@ -120,7 +115,6 @@ public class Ocean implements Board {
                 break;
             }
         }
-
         return status;
     }
 
