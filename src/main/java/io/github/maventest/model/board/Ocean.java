@@ -57,7 +57,7 @@ public class Ocean implements Board {
 
 
             }
-        } catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
 
@@ -81,10 +81,10 @@ public class Ocean implements Board {
     private CellSet<Cell> getRandomCells(int shipLength, boolean horizontal) throws ArrayIndexOutOfBoundsException {
         CellSet<Cell> cells = new CellSet<>();
 
-        int  randomW = randomGenerator.nextInt(SIZE_W - 1);
-        int  randomH = randomGenerator.nextInt(SIZE_H - 1);
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_H - 1);
 
-        if (okPlaceToShip(randomW,randomH,shipLength,horizontal)) {
+        if (okPlaceToShip(randomW, randomH, shipLength, horizontal)) {
             for (int i = 0; i < shipLength; i++) {
 
                 Cell cell = new Cell(randomW, randomH);
@@ -106,7 +106,7 @@ public class Ocean implements Board {
             }//for
             return cells;
         } else {
-            getRandomCells(shipLength,horizontal);
+            getRandomCells(shipLength, horizontal);
             return cells;
         }
 
@@ -131,25 +131,27 @@ public class Ocean implements Board {
         }
     }
 
-    private boolean okPlaceToShip(int randomW ,int randomH, int shipLength,boolean horizontal ){
+    private boolean okPlaceToShip(int randomW, int randomH, int shipLength, boolean horizontal) {
         int H = randomH;
         int W = randomW;
         int shipLengthVar = shipLength;
         boolean horizontalVar = horizontal;
 
 
-        if(horizontal){
-              if(W <= shipLengthVar){
+        if (horizontal) {
+            if (W <= shipLengthVar) {
                 return true;
-            } else
-                {return false;}
+            } else {
+                return false;
+            }
 
-        } else
-            if(H <= shipLengthVar){
+        } else if (H <= shipLengthVar) {
             return true;
-        } else {return  false;}
+        } else {
+            return false;
         }
     }
+}
 
 
 

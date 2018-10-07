@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Bomber implements Airplane,Ship {
+public class Bomber implements Airplane, Ship {
 
     int size = 5;
     private List<Cell> cellsArray = new ArrayList<>();

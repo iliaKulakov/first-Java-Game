@@ -17,14 +17,13 @@ public class App {
         board.placeUnit("Bomber");
 
         board.placeUnit("Bomber");
-       // board.placeUnit("TwoDeckShip");
+        // board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         //board.placeUnit("TwoDeckShip");
         ///board.placeUnit("TwoDeckShip");
-       // board.placeUnit("TwoDeckShip");
-       // board.placeUnit("Karas");
-
+        // board.placeUnit("TwoDeckShip");
+        // board.placeUnit("Karas");
 
 
         ((Ocean) board).printUnits();

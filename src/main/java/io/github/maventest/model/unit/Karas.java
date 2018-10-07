@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //3 size
-public class Karas implements Submarine, Ship{
+public class Karas implements Submarine, Ship {
 
     int size = 3;
     private List<Cell> cellsArray = new ArrayList<>();
