@@ -6,30 +6,22 @@ import io.github.maventest.model.board.Ocean;
 public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
-        board.init();
+       // board.init();
+       ((Ocean) board).newInit();
+
+       /* board.placeUnit("Boat");
+        board.placeUnit("Boat");
+        board.placeUnit("Boat");
         board.placeUnit("Boat");
         board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
+        board.placeUnit("TwoDeckShip");
         board.placeUnit("Karas");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-
-        board.placeUnit("Bomber");
-
-        board.placeUnit("Bomber");
-        // board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        ///board.placeUnit("TwoDeckShip");
-        // board.placeUnit("TwoDeckShip");
-        // board.placeUnit("Karas");
-
+        board.placeUnit("Karas");
+        board.placeUnit("Bomber");*/
 
         ((Ocean) board).printUnits();
         board.print();
-
-
     }
 
 }

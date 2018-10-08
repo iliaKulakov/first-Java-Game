@@ -31,10 +31,18 @@ public class Ocean implements Board {
 
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
-                boardCells[i][j] = 0;
-            }
-        }
-
+                boardCells[i][j] = 0; } }
+            //placeUnit();
+        placeUnit("Boat");
+        placeUnit("Boat");
+        placeUnit("Boat");
+        placeUnit("Boat");
+        placeUnit("TwoDeckShip");
+        placeUnit("TwoDeckShip");
+        placeUnit("TwoDeckShip");
+        placeUnit("Karas");
+        placeUnit("Karas");
+        placeUnit("Bomber");
 
 //        TODO: Расставить корабли
     }
