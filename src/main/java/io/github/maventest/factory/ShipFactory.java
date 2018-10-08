@@ -16,7 +16,6 @@ public class ShipFactory {
         return shipFactory;
     }
 
-    // public Boat getShip(String name) {
     public Ship getShip(String shipName) {
         switch (shipName) {
             case "Boat":
@@ -36,8 +35,13 @@ public class ShipFactory {
 
 
         }
-
     }
+
+    /*public void  <T> getShipGeneric() {
+
+
+    }*/
+
 }
 
 
