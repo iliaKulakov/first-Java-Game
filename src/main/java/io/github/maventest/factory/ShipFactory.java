@@ -32,15 +32,8 @@ public class ShipFactory {
 
             default:
                 return new Boat(); //need to fix
-
-
         }
     }
-
-    /*public void  <T> getShipGeneric() {
-
-
-    }*/
 
 }
 

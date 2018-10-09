@@ -13,7 +13,7 @@ public class Ocean implements Board {
     private final int SIZE_H = 10;
     private static final int BOAT = 4;
     private static final int TWO_DECK_SHIP = 3;
-    private static final int KARAS_3 = 2;
+    private static final int KARAS = 2;
     private static final int BOMBER = 1;
     private final Random randomGenerator = new Random();
     private final ShipFactory shipFactory;
@@ -31,13 +31,13 @@ public class Ocean implements Board {
     public void buildAllShips(){
         for (int i = 0; i < BOAT; i++) {
             placeUnit("Boat");
-            System.out.println("Generate boat");
+
         }
         for (int i = 0; i < TWO_DECK_SHIP; i++) {
             placeUnit("TwoDeckShip");
 
         }
-        for (int i = 0; i < KARAS_3; i++) {
+        for (int i = 0; i < KARAS; i++) {
             placeUnit("Karas");
 
         }
@@ -47,14 +47,6 @@ public class Ocean implements Board {
         }
     }
 
-    public void newInit() {
-
-        for (int i = 0; i < SIZE_H; i++) {
-            for (int j = 0; j < SIZE_W; j++) {
-                boardCells[i][j] = 0; } }
-                buildAllShips();
-        //        TODO: Расставить корабли
-    }
 
     @Override
     public void init() {
@@ -64,8 +56,8 @@ public class Ocean implements Board {
                 boardCells[i][j] = 0;
             }
         }
-
-//        TODO: Расставить корабли
+        buildAllShips();
+//        TOD   O: Расставить корабли
     }
 
     @Override
@@ -85,7 +77,6 @@ public class Ocean implements Board {
         boolean horizontal = randomGenerator.nextBoolean();
         int shipLength = ship.getSize();
         CellSet<Cell> shipCells = new CellSet<>();
-
 
 //      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
@@ -114,7 +105,7 @@ public class Ocean implements Board {
 
         CellSet<Cell> localCells = getRandomCells(shipLength, horizontal, cells);
 
-        if (isOccupiedCells(localCells)) {
+        if (isOccupied(localCells) && isOccupiedCells(localCells)) {
             generateCell(shipLength, horizontal);
         }
 
@@ -185,7 +176,6 @@ public class Ocean implements Board {
         int W = randomW;
         int shipLengthVar = shipLength;
         boolean horizontalVar = horizontal;
-
 
         if (horizontal) {
             if (W <= shipLengthVar) {
