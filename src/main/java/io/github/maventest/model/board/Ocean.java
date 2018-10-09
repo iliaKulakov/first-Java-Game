@@ -1,6 +1,6 @@
 package io.github.maventest.model.board;
 
-import io.github.maventest.factory.NewShipFactory;
+
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.ShipPrinter;
 import io.github.maventest.model.unit.Ship;
@@ -11,40 +11,49 @@ import java.util.*;
 public class Ocean implements Board {
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
+    private static final int BOAT = 4;
+    private static final int TWO_DECK_SHIP = 3;
+    private static final int KARAS_3 = 2;
+    private static final int BOMBER = 1;
     private final Random randomGenerator = new Random();
     private final ShipFactory shipFactory;
-    private final NewShipFactory newShipFactory;
     private int boardCells[][] = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
     private final ShipPrinter PRINTER = new ShipPrinter();
 
+
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
-        newShipFactory = NewShipFactory.getInstance();
     }
 
+    public void buildAllShips(){
+        for (int i = 0; i < BOAT; i++) {
+            placeUnit("Boat");
+            System.out.println("Generate boat");
+        }
+        for (int i = 0; i < TWO_DECK_SHIP; i++) {
+            placeUnit("TwoDeckShip");
 
+        }
+        for (int i = 0; i < KARAS_3; i++) {
+            placeUnit("Karas");
+
+        }
+        for (int i = 0; i < BOMBER; i++) {
+            placeUnit("Bomber");
+
+        }
+    }
 
     public void newInit() {
 
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
                 boardCells[i][j] = 0; } }
-            //placeUnit();
-        placeUnit("Boat");
-        placeUnit("Boat");
-        placeUnit("Boat");
-        placeUnit("Boat");
-        placeUnit("TwoDeckShip");
-        placeUnit("TwoDeckShip");
-        placeUnit("TwoDeckShip");
-        placeUnit("Karas");
-        placeUnit("Karas");
-        placeUnit("Bomber");
-
-//        TODO: Расставить корабли
+                buildAllShips();
+        //        TODO: Расставить корабли
     }
 
     @Override
