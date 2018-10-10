@@ -10,20 +10,23 @@ import java.util.List;
 public class Boat implements Ship {
     private int lifeBoat = 1;
     private List<Cell> cell = new ArrayList<>();
-    boolean isAlive = true;
+    private boolean isAlive = true;
+
 
     @Override
-    public void shotAtTheEnemyShip(int weight, int height){
-
-        int weight=0;
-        int height=0;
+    public void toRegisterTheShot() {
+        this.lifeBoat = lifeBoat - 1;
     }
 
-    Override
-    public void toRegisterTheShot();
-    this.lifeBoat = lifeBoat - 1;
-
-    public boolean checlIsAlive
+    @Override
+    public boolean checkIsAlive(){
+        if(this.lifeBoat>0){
+            this.isAlive=true;
+        }else{
+            this.isAlive=false;
+        }
+        return isAlive;
+    }
 
 
     @Override

@@ -186,6 +186,21 @@ public class Ocean implements Board {
             return false;
         }
     }
+
+
+    public boolean shotAtTheEnemyShip(int weight, int height){
+        boolean hit = false;
+        if(this.boardCells[weight][height]==1) {
+
+
+        } else
+        {
+            hit=false;
+        }
+        return hit;
+    }
+
+
 }
 
 

@@ -7,10 +7,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Bomber implements Ship {
-
+    private int lifeBomber = 5;
+    private boolean isAlive = true;
     int size = 5;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
+
+
+    @Override
+    public void toRegisterTheShot() {
+        this.lifeBomber = lifeBomber - 1;
+    }
+
+    @Override
+    public boolean checkIsAlive(){
+        if(this.lifeBomber>0){
+            this.isAlive=true;
+        }else{
+            this.isAlive=false;
+        }
+        return isAlive;
+    }
+
 
     @Override
     public boolean getIsHorizontal() {

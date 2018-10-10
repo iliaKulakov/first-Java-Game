@@ -8,10 +8,26 @@ import java.util.List;
 
 //3 size
 public class Karas implements Ship {
-
+    private int lifeTKaras = 3;
+    private boolean isAlive = true;
     int size = 3;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
+
+    @Override
+    public void toRegisterTheShot() {
+        this.lifeTKaras = lifeTKaras - 1;
+    }
+
+    @Override
+    public boolean checkIsAlive(){
+        if(this.lifeTKaras>0){
+            this.isAlive=true;
+        }else{
+            this.isAlive=false;
+        }
+        return isAlive;
+    }
 
     @Override
     public boolean getIsHorizontal() {
