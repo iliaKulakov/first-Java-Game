@@ -188,16 +188,22 @@ public class Ocean implements Board {
     }
 
 
-    public boolean shotAtTheEnemyShip(int weight, int height){
+  //  public boolean shotAtTheEnemyShip(int weight, int height){
+    public void shotAtTheEnemyShip(){
+        int weight= 1;
+        int height =1;
         boolean hit = false;
-        if(this.boardCells[weight][height]==1) {
+        //if(this.boardCells[weight][height]==1) {
+        Cell cellVar =  new Cell(weight,height);
+        boats.containsKey(occupiedCells.contains(cellVar));
+        //boats.get(occupiedCells.contains(cellVar)).toRegisterTheShot();
+        System.out.println("Вывести коллекцию" + boats.get(occupiedCells.contains(cellVar)));
 
-
-        } else
-        {
-            hit=false;
-        }
-        return hit;
+      //  } else
+       // {
+        //    hit=false;
+       // }
+       // return hit;
     }
 
 

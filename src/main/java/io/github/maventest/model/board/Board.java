@@ -11,5 +11,7 @@ public interface Board {
 
 //    boolean isOccupied(Ship Boat);
 
+    void shotAtTheEnemyShip();
+
 
 }

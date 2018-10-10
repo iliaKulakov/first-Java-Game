@@ -21,7 +21,8 @@ public class Sky implements Board {
     // public boolean isOccupied(Ship boat) {
     //    return false;
     //}
-
+    @Override
+    public void shotAtTheEnemyShip(){}
 
 }
 
