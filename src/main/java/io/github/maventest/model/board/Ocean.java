@@ -1,6 +1,5 @@
 package io.github.maventest.model.board;
 
-
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.ShipPrinter;
 import io.github.maventest.model.unit.Ship;
@@ -22,7 +21,6 @@ public class Ocean implements Board {
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
     private final ShipPrinter PRINTER = new ShipPrinter();
-
 
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
@@ -47,7 +45,6 @@ public class Ocean implements Board {
         }
     }
 
-
     @Override
     public void init() {
 
@@ -57,7 +54,6 @@ public class Ocean implements Board {
             }
         }
         buildAllShips();
-//        TOD   O: Расставить корабли
     }
 
     @Override

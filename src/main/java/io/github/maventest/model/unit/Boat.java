@@ -8,8 +8,23 @@ import java.util.List;
 
 //Boat 1 size
 public class Boat implements Ship {
-
+    private int lifeBoat = 1;
     private List<Cell> cell = new ArrayList<>();
+    boolean isAlive = true;
+
+    @Override
+    public void shotAtTheEnemyShip(int weight, int height){
+
+        int weight=0;
+        int height=0;
+    }
+
+    Override
+    public void toRegisterTheShot();
+    this.lifeBoat = lifeBoat - 1;
+
+    public boolean checlIsAlive
+
 
     @Override
     public boolean shot() {

@@ -18,4 +18,8 @@ public interface Unit {
 
     boolean getIsHorizontal();
 
+    void shotAtTheEnemyShip(int weight, int height);
+
+    void toRegisterTheShot();
+
 }
