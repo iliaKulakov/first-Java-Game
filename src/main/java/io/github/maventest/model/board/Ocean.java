@@ -194,17 +194,23 @@ public class Ocean implements Board {
         this.weight = weight;
         this.height = height;
         boolean hit = false;
+
         if(this.boardCells[weight][height]!=0) {
             Cell cellVar =  new Cell(weight,height);
-            boats.containsKey(occupiedCells.contains(cellVar));
-
-        //boats.get(occupiedCells.contains(cellVar)).toRegisterTheShot();
-        System.out.println("Вывести коллекцию" + boats.get(occupiedCells.contains(cellVar)));
-        boats.get(occupiedCells.contains(cellVar)).toRegisterTheShot();
-        hit=true;
-        } else {
+            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+                if(item.getKey().contains(cellVar)){
+                    item.getValue().toRegisterTheShot();
+                    hit=true;
+                    System.out.println("shoot "+ hit);
+               }
+            }
+        }
+         else {
+            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+               // System.out.println(item.getKey() +"   "+ item.getValue());
+            }
             hit=false;
-       }
+              }
         System.out.println("shoot "+ hit);
         return hit;
 
