@@ -21,7 +21,7 @@ public class Land implements Board {
     //      return false;
     // }
     @Override
-    public void shotAtTheEnemyShip() {}
+    public boolean shotAtTheEnemyShip(int weight, int height){return false;}
 
 }
 

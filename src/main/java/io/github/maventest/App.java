@@ -11,7 +11,9 @@ public class App {
 
         ((Ocean) board).printUnits();
         board.print();
-        board.shotAtTheEnemyShip();
+        board.shotAtTheEnemyShip(0,0);
+        board.shotAtTheEnemyShip(0,1);
+        board.shotAtTheEnemyShip(1,2);
     }
 
 }

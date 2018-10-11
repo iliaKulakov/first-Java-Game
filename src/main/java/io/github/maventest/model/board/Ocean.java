@@ -8,6 +8,8 @@ import io.github.maventest.model.unit.Unit;
 import java.util.*;
 
 public class Ocean implements Board {
+    private int weight = 0;
+    private int height = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private static final int BOAT = 4;
@@ -187,23 +189,25 @@ public class Ocean implements Board {
         }
     }
 
-
-  //  public boolean shotAtTheEnemyShip(int weight, int height){
-    public void shotAtTheEnemyShip(){
-        int weight= 1;
-        int height =1;
+    @Override
+    public boolean shotAtTheEnemyShip(int weight, int height){
+        this.weight = weight;
+        this.height = height;
         boolean hit = false;
-        //if(this.boardCells[weight][height]==1) {
-        Cell cellVar =  new Cell(weight,height);
-        boats.containsKey(occupiedCells.contains(cellVar));
+        if(this.boardCells[weight][height]!=0) {
+            Cell cellVar =  new Cell(weight,height);
+            boats.containsKey(occupiedCells.contains(cellVar));
+
         //boats.get(occupiedCells.contains(cellVar)).toRegisterTheShot();
         System.out.println("Вывести коллекцию" + boats.get(occupiedCells.contains(cellVar)));
+        boats.get(occupiedCells.contains(cellVar)).toRegisterTheShot();
+        hit=true;
+        } else {
+            hit=false;
+       }
+        System.out.println("shoot "+ hit);
+        return hit;
 
-      //  } else
-       // {
-        //    hit=false;
-       // }
-       // return hit;
     }
 
 
