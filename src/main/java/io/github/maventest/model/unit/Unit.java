@@ -14,14 +14,12 @@ public interface Unit {
 
     List<Cell> getCells();
 
-    String getShipType();
+    UnitType getShipType();
 
     boolean getIsHorizontal();
 
-  //  boolean shotAtTheEnemyShip(int weight, int height);
-
     void toRegisterTheShot();
 
-    public boolean checkIsAlive();
+    boolean checkIsAlive();
 
 }

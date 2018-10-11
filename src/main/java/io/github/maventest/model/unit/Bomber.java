@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Bomber implements Ship {
+    int size = 5;
     private int lifeBomber = 5;
     private boolean isAlive = true;
-    int size = 5;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
 
@@ -20,11 +20,11 @@ public class Bomber implements Ship {
     }
 
     @Override
-    public boolean checkIsAlive(){
-        if(this.lifeBomber>0){
-            this.isAlive=true;
-        }else{
-            this.isAlive=false;
+    public boolean checkIsAlive() {
+        if (this.lifeBomber > 0) {
+            this.isAlive = true;
+        } else {
+            this.isAlive = false;
         }
         return isAlive;
     }
@@ -36,8 +36,8 @@ public class Bomber implements Ship {
     }
 
     @Override
-    public String getShipType() {
-        return "Bomber";
+    public UnitType getShipType() {
+        return ShipType.Bomber;
     }
 
     @Override

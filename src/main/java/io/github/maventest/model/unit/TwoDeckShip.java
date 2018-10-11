@@ -5,12 +5,11 @@ import io.github.maventest.model.board.Cell;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TwoDeckShip implements Ship {
+    int size = 2;
     private int lifeTwoDeckShip = 2;
     private boolean isAlive = true;
-    int size = 2;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
 
@@ -20,11 +19,11 @@ public class TwoDeckShip implements Ship {
     }
 
     @Override
-    public boolean checkIsAlive(){
-        if(this.lifeTwoDeckShip>0){
-            this.isAlive=true;
-        }else{
-            this.isAlive=false;
+    public boolean checkIsAlive() {
+        if (this.lifeTwoDeckShip > 0) {
+            this.isAlive = true;
+        } else {
+            this.isAlive = false;
         }
         return isAlive;
     }
@@ -35,8 +34,8 @@ public class TwoDeckShip implements Ship {
     }
 
     @Override
-    public String getShipType() {
-        return "TwoDeckShip";
+    public UnitType getShipType() {
+        return ShipType.TwoDeckShip;
     }
 
     @Override

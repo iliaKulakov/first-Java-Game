@@ -12,18 +12,17 @@ public class Boat implements Ship {
     private List<Cell> cell = new ArrayList<>();
     private boolean isAlive = true;
 
-
     @Override
     public void toRegisterTheShot() {
         this.lifeBoat = lifeBoat - 1;
     }
 
     @Override
-    public boolean checkIsAlive(){
-        if(this.lifeBoat>0){
-            this.isAlive=true;
-        }else{
-            this.isAlive=false;
+    public boolean checkIsAlive() {
+        if (this.lifeBoat > 0) {
+            this.isAlive = true;
+        } else {
+            this.isAlive = false;
         }
 
         return isAlive;
@@ -54,8 +53,8 @@ public class Boat implements Ship {
     }
 
     @Override
-    public String getShipType() {
-        return null;
+    public UnitType getShipType() {
+        return ShipType.Boat;
     }
 
     @Override

@@ -16,18 +16,18 @@ public class ShipFactory {
         return shipFactory;
     }
 
-    public Ship getShip(String shipName) {
-        switch (shipName) {
-            case "Boat":
+    public Ship getShip(UnitType<ShipType> shipType) {
+        switch (shipType.valueOf()) {
+            case Boat:
                 return new Boat();
 
-            case "TwoDeckShip":
+            case TwoDeckShip:
                 return new TwoDeckShip();
 
-            case "Karas":
+            case Karas:
                 return new Karas();
 
-            case "Bomber":
+            case Bomber:
                 return new Bomber();
 
             default:

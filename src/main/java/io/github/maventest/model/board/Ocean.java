@@ -3,47 +3,42 @@ package io.github.maventest.model.board;
 import io.github.maventest.factory.ShipFactory;
 import io.github.maventest.model.ShipPrinter;
 import io.github.maventest.model.unit.Ship;
+import io.github.maventest.model.unit.ShipType;
 import io.github.maventest.model.unit.Unit;
+import io.github.maventest.model.unit.UnitType;
 
 import java.util.*;
 
 public class Ocean implements Board {
-    private int weight = 0;
-    private int height = 0;
-    private final int SIZE_W = 10;
-    private final int SIZE_H = 10;
     private static final int BOAT = 4;
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
+    private final int SIZE_W = 10;
+    private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
     private final ShipFactory shipFactory;
-    private int boardCells[][] = new int[SIZE_W][SIZE_H];
+    private final ShipPrinter PRINTER = new ShipPrinter();
+    private int[][] boardCells = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
-    private final ShipPrinter PRINTER = new ShipPrinter();
 
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
     }
 
-    public void buildAllShips(){
-        for (int i = 0; i < BOAT; i++) {
-            placeUnit("Boat");
+    public void buildAllShips() {
+//        TODO: Почему не ENUM?
+        createShip(BOAT, ShipType.Boat);
+        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+        createShip(KARAS, ShipType.Karas);
+        createShip(BOMBER, ShipType.Bomber);
+    }
 
-        }
-        for (int i = 0; i < TWO_DECK_SHIP; i++) {
-            placeUnit("TwoDeckShip");
-
-        }
-        for (int i = 0; i < KARAS; i++) {
-            placeUnit("Karas");
-
-        }
-        for (int i = 0; i < BOMBER; i++) {
-            placeUnit("Bomber");
-
+    private void createShip(int shipCount, UnitType<ShipType> shipType) {
+        for (int i = 0; i < shipCount; i++) {
+            placeUnit(shipType);
         }
     }
 
@@ -69,12 +64,13 @@ public class Ocean implements Board {
     }
 
     @Override
-    public void placeUnit(String shipType) throws ArrayIndexOutOfBoundsException {
+    public void placeUnit(UnitType unitType) throws ArrayIndexOutOfBoundsException {
 
-        Ship ship = this.shipFactory.getShip(shipType);
+        Ship ship = this.shipFactory.getShip(unitType);
         boolean horizontal = randomGenerator.nextBoolean();
         int shipLength = ship.getSize();
-        CellSet<Cell> shipCells = new CellSet<>();
+        new CellSet<>();
+        CellSet<Cell> shipCells;
 
 //      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
@@ -121,20 +117,18 @@ public class Ocean implements Board {
                 Cell cell = new Cell(randomW, randomH);
 
                 if (horizontal) {
-//                    System.out.println("horizontal ");
                     cell.updateCoordinates(randomW, randomH);
 
                     randomW++;
 
                 } else {
-//                    System.out.println("vertical ");
+
                     cell.updateCoordinates(randomW, randomH);
 
                     randomH++;
                 }
                 cells.add(cell);
-            }//for
-            //return cells;
+            }
         } else {
             getRandomCells(shipLength, horizontal, cells);
 
@@ -173,7 +167,6 @@ public class Ocean implements Board {
         int H = randomH;
         int W = randomW;
         int shipLengthVar = shipLength;
-        boolean horizontalVar = horizontal;
 
         if (horizontal) {
             if (W <= shipLengthVar) {
@@ -190,28 +183,22 @@ public class Ocean implements Board {
     }
 
     @Override
-    public boolean shotAtTheEnemyShip(int weight, int height){
-        this.weight = weight;
-        this.height = height;
+    public boolean shotAtTheEnemyShip(int weight, int height) {
         boolean hit = false;
 
-        if(this.boardCells[weight][height]!=0) {
-            Cell cellVar =  new Cell(weight,height);
+        if (this.boardCells[weight][height] != 0) {
+            Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-                if(item.getKey().contains(cellVar)){
+                if (item.getKey().contains(cellVar)) {
                     item.getValue().toRegisterTheShot();
-                    hit=true;
-                    System.out.println("shoot "+ hit);
-               }
+                    hit = true;
+                    System.out.println("shoot " + hit);
+                }
             }
+        } else {
+            hit = false;
         }
-         else {
-            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-               // System.out.println(item.getKey() +"   "+ item.getValue());
-            }
-            hit=false;
-              }
-        System.out.println("shoot "+ hit);
+        System.out.println("shoot " + hit);
         return hit;
 
     }

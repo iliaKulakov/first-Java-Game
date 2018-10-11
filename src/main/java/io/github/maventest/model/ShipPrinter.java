@@ -1,20 +1,21 @@
 package io.github.maventest.model;
 
+import io.github.maventest.model.board.Cell;
 import io.github.maventest.model.unit.Ship;
 
 public final class ShipPrinter {
 
     public void printShip(Ship ship) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
-        stringBuffer.append(ship.getShipType()).append("\n");
-        stringBuffer.append(ship.getSize()).append("\n");
+        sb.append(ship.getShipType()).append("\n");
+        sb.append(ship.getSize()).append("\n");
 
-        String cells = ship.getCells().stream().map(e -> e.toString()).reduce("", String::concat);
+        String cells = ship.getCells().stream().map(Cell::toString).reduce("", String::concat);
 
-        stringBuffer.append(cells).append("\n");
-        stringBuffer.append("____________________________");
+        sb.append(cells).append("\n");
+        sb.append("____________________________");
 
-        System.out.println(stringBuffer.toString());
+        System.out.println(sb.toString());
     }
 }
