@@ -192,13 +192,15 @@ public class Ocean implements Board {
                 if (item.getKey().contains(cellVar)) {
                     item.getValue().toRegisterTheShot();
                     hit = true;
-                    System.out.println("shoot " + hit);
+                    boardCells[weight][height] =99;
+                    System.out.println("result of shoot = " + hit);
+
                 }
             }
         } else {
             hit = false;
         }
-        System.out.println("shoot " + hit);
+        System.out.println("result of shoot = " + hit);
         return hit;
 
     }
