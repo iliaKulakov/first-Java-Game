@@ -38,15 +38,9 @@ public class Ocean implements Board {
 
     public void buildAllShips() {
 //        TODO: Почему не ENUM?
-       // createShip(BOAT, ShipType.Boat);
-       // createShip(BOAT, ShipType.Boat);
-      //  createShip(BOAT, ShipType.Boat);
-       // createShip(BOAT, ShipType.Boat);
-       // createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-       // createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-      //  createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-      //  createShip(KARAS, ShipType.Karas);
-     //   createShip(KARAS, ShipType.Karas);
+        createShip(BOAT, ShipType.Boat);
+        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+        createShip(KARAS, ShipType.Karas);
         createShip(BOMBER, ShipType.Bomber);
     }
 
@@ -203,17 +197,14 @@ public class Ocean implements Board {
                     if (!item.getValue().checkIsAlive()){
                         shipsDestroyed = shipsDestroyed + 1;
                     }
-
                     hit = true;
                     boardCells[weight][height] =99;
-                    System.out.println("result of shoot = " + hit);
-
                 }
             }
         } else {
             hit = false;
         }
-        System.out.println("result of shoot = " + hit);
+        //System.out.println("result of shoot = " + hit);
         return hit;
 
     }
@@ -222,6 +213,8 @@ public class Ocean implements Board {
         return (this.shipsDestroyed == TOTAL_SHIPS);
 
     }
+
+
 
 }
 
