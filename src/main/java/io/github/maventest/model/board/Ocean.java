@@ -14,7 +14,7 @@ public class Ocean implements Board {
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
-    private static final int TOTAL_SHIPS= 10;
+    private static final int TOTAL_SHIPS= 1;
     private int shipsDestroyed = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
@@ -38,21 +38,20 @@ public class Ocean implements Board {
 
     public void buildAllShips() {
 //        TODO: Почему не ENUM?
-        createShip(BOAT, ShipType.Boat);
-        createShip(BOAT, ShipType.Boat);
-        createShip(BOAT, ShipType.Boat);
-        createShip(BOAT, ShipType.Boat);
-        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-        createShip(KARAS, ShipType.Karas);
-        createShip(KARAS, ShipType.Karas);
+       // createShip(BOAT, ShipType.Boat);
+       // createShip(BOAT, ShipType.Boat);
+      //  createShip(BOAT, ShipType.Boat);
+       // createShip(BOAT, ShipType.Boat);
+       // createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+       // createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+      //  createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+      //  createShip(KARAS, ShipType.Karas);
+     //   createShip(KARAS, ShipType.Karas);
         createShip(BOMBER, ShipType.Bomber);
     }
 
     @Override
     public void init() {
-
         for (int i = 0; i < SIZE_H; i++) {
             for (int j = 0; j < SIZE_W; j++) {
                 boardCells[i][j] = 0;
@@ -123,6 +122,7 @@ public class Ocean implements Board {
 
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_H - 1);
+
 
         if (okPlaceToShip(randomW, randomH, shipLength, horizontal)) {
             for (int i = 0; i < shipLength; i++) {
@@ -215,8 +215,6 @@ public class Ocean implements Board {
         }
         System.out.println("result of shoot = " + hit);
         return hit;
-
-
 
     }
 
