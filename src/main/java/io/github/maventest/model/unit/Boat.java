@@ -28,7 +28,6 @@ public class Boat implements Ship {
         return isAlive;
     }
 
-
     @Override
     public boolean shot() {
         return false;

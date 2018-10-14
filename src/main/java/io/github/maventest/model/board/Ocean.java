@@ -14,6 +14,8 @@ public class Ocean implements Board {
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
+    private static final int TOTAL_SHIPS= 10;
+    private int shipsDestroyed = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
@@ -28,18 +30,24 @@ public class Ocean implements Board {
         shipFactory = ShipFactory.getInstance();
     }
 
-    public void buildAllShips() {
-//        TODO: Почему не ENUM?
-        createShip(BOAT, ShipType.Boat);
-        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
-        createShip(KARAS, ShipType.Karas);
-        createShip(BOMBER, ShipType.Bomber);
-    }
-
     private void createShip(int shipCount, UnitType<ShipType> shipType) {
         for (int i = 0; i < shipCount; i++) {
             placeUnit(shipType);
         }
+    }
+
+    public void buildAllShips() {
+//        TODO: Почему не ENUM?
+        createShip(BOAT, ShipType.Boat);
+        createShip(BOAT, ShipType.Boat);
+        createShip(BOAT, ShipType.Boat);
+        createShip(BOAT, ShipType.Boat);
+        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+        createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
+        createShip(KARAS, ShipType.Karas);
+        createShip(KARAS, ShipType.Karas);
+        createShip(BOMBER, ShipType.Bomber);
     }
 
     @Override
@@ -63,6 +71,12 @@ public class Ocean implements Board {
         }
     }
 
+    public void printUnits() {
+        for (Unit unit : units) {
+            System.out.print(unit);
+        }
+    }
+
     @Override
     public void placeUnit(UnitType unitType) throws ArrayIndexOutOfBoundsException {
 
@@ -71,7 +85,6 @@ public class Ocean implements Board {
         int shipLength = ship.getSize();
         new CellSet<>();
         CellSet<Cell> shipCells;
-
 //      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
 
@@ -156,13 +169,6 @@ public class Ocean implements Board {
         return status;
     }
 
-
-    public void printUnits() {
-        for (Unit unit : units) {
-            System.out.print(unit);
-        }
-    }
-
     private boolean okPlaceToShip(int randomW, int randomH, int shipLength, boolean horizontal) {
         int H = randomH;
         int W = randomW;
@@ -189,8 +195,15 @@ public class Ocean implements Board {
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+
+
                 if (item.getKey().contains(cellVar)) {
+
                     item.getValue().toRegisterTheShot();
+                    if (!item.getValue().checkIsAlive()){
+                        shipsDestroyed = shipsDestroyed + 1;
+                    }
+
                     hit = true;
                     boardCells[weight][height] =99;
                     System.out.println("result of shoot = " + hit);
@@ -203,8 +216,14 @@ public class Ocean implements Board {
         System.out.println("result of shoot = " + hit);
         return hit;
 
+
+
     }
 
+    public boolean isGameOver() {
+        return (this.shipsDestroyed == TOTAL_SHIPS);
+
+    }
 
 }
 

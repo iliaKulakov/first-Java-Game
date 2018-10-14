@@ -6,6 +6,8 @@ import io.github.maventest.model.board.Ocean;
 public class App {
     public static void main(String[] args) {
         Board board = new Ocean();
+
+
         board.init();
 
         ((Ocean) board).printUnits();
@@ -13,6 +15,7 @@ public class App {
         board.shotAtTheEnemyShip(0, 1);
         board.shotAtTheEnemyShip(1, 2);
         board.print();
+
     }
 
 }

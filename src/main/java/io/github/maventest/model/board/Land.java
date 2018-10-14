@@ -28,5 +28,11 @@ public class Land implements Board {
         return false;
     }
 
+    public boolean isGameOver() {
+        return true;
+    }
+
 }
+
+
 

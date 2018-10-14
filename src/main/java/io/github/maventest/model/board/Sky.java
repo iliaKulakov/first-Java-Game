@@ -24,5 +24,9 @@ public class Sky implements Board {
         return false;
     }
 
+    public boolean isGameOver() {
+        return true;
+    }
+
 }
 
