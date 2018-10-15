@@ -3,35 +3,24 @@ package io.github.maventest;
 import io.github.maventest.model.board.Board;
 import io.github.maventest.model.board.Ocean;
 
+import java.util.Random;
+
 public class App {
     public static void main(String[] args) {
+
         Board board = new Ocean();
         board.init();
-        board.placeUnit("Boat");
-        board.placeUnit("TwoDeckShip");
-        board.placeUnit("Karas");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-        board.placeUnit("Bomber");
-
-        board.placeUnit("Bomber");
-
-        board.placeUnit("Bomber");
-        // board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        //board.placeUnit("TwoDeckShip");
-        ///board.placeUnit("TwoDeckShip");
-        // board.placeUnit("TwoDeckShip");
-        // board.placeUnit("Karas");
-
-
         ((Ocean) board).printUnits();
+         int SIZE_X = 10;
+         int SIZE_Y = 10;
+            for (int i = 0; i < SIZE_X; i++) {
+                for (int j = 0; j < SIZE_Y; j++) {
+                    board.shotAtTheEnemyShip(i, j);
+                }
+            }
         board.print();
-
-
+        System.out.println("The Current Game is Over: " + board.isGameOver());
     }
-
 }
 
 

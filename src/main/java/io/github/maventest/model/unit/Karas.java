@@ -8,10 +8,26 @@ import java.util.List;
 
 //3 size
 public class Karas implements Ship {
-
     int size = 3;
+    private int lifeTKaras = 3;
+    private boolean isAlive = true;
     private List<Cell> cellsArray = new ArrayList<>();
     private boolean isHorizontal = true;
+
+    @Override
+    public void toRegisterTheShot() {
+        this.lifeTKaras = lifeTKaras - 1;
+    }
+
+    @Override
+    public boolean checkIsAlive() {
+        if (this.lifeTKaras > 0) {
+            this.isAlive = true;
+        } else {
+            this.isAlive = false;
+        }
+        return isAlive;
+    }
 
     @Override
     public boolean getIsHorizontal() {
@@ -19,8 +35,8 @@ public class Karas implements Ship {
     }
 
     @Override
-    public String getShipType() {
-        return "Karas";
+    public ShipType getShipType() {
+        return ShipType.Karas;
     }
 
     @Override

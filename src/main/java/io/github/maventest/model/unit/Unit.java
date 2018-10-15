@@ -14,8 +14,12 @@ public interface Unit {
 
     List<Cell> getCells();
 
-    String getShipType();
+    UnitType getShipType();
 
     boolean getIsHorizontal();
+
+    void toRegisterTheShot();
+
+    boolean checkIsAlive();
 
 }

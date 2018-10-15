@@ -1,5 +1,7 @@
 package io.github.maventest.model.board;
 
+import io.github.maventest.model.unit.UnitType;
+
 public class Land implements Board {
     @Override
     public void init() {
@@ -12,15 +14,19 @@ public class Land implements Board {
     }
 
     @Override
-    public void placeUnit(String shipType) {
+    public void placeUnit(UnitType unitType) {
 
     }
 
-    //@Override
-    //public boolean isOccupied(Ship boat) {
-    //      return false;
-    // }
+    @Override
+    public void shotAtTheEnemyShip(int weight, int height) {
+    }
 
+    public boolean isGameOver() {
+        return true;
+    }
 
 }
+
+
 
