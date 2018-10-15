@@ -11,7 +11,7 @@ public interface Board<T> {
 
     void placeUnit(UnitType<T> unitType);
 
-    boolean shotAtTheEnemyShip(int weight, int height);
+    void shotAtTheEnemyShip(int weight, int height);
 
     boolean isGameOver();
 

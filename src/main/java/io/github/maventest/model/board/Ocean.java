@@ -14,7 +14,7 @@ public class Ocean implements Board {
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
-    private static final int TOTAL_SHIPS= 1;
+    private static final int TOTAL_SHIPS= 10;
     private int shipsDestroyed = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
@@ -183,13 +183,12 @@ public class Ocean implements Board {
     }
 
     @Override
-    public boolean shotAtTheEnemyShip(int weight, int height) {
+    public void shotAtTheEnemyShip(int weight, int height) {
         boolean hit = false;
 
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-
 
                 if (item.getKey().contains(cellVar)) {
 
@@ -197,24 +196,16 @@ public class Ocean implements Board {
                     if (!item.getValue().checkIsAlive()){
                         shipsDestroyed = shipsDestroyed + 1;
                     }
-                    hit = true;
-                    boardCells[weight][height] =99;
+                    boardCells[weight][height] = 99;
                 }
             }
-        } else {
-            hit = false;
         }
-        //System.out.println("result of shoot = " + hit);
-        return hit;
-
     }
 
     public boolean isGameOver() {
         return (this.shipsDestroyed == TOTAL_SHIPS);
 
     }
-
-
 
 }
 

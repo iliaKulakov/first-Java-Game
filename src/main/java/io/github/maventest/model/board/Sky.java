@@ -20,8 +20,7 @@ public class Sky implements Board {
     }
 
     @Override
-    public boolean shotAtTheEnemyShip(int weight, int height) {
-        return false;
+    public void shotAtTheEnemyShip(int weight, int height) {
     }
 
     public boolean isGameOver() {
