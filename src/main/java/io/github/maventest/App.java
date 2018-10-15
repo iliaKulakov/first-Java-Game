@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
+
         Board board = new Ocean();
         board.init();
         ((Ocean) board).printUnits();
@@ -15,14 +16,11 @@ public class App {
             for (int i = 0; i < SIZE_X; i++) {
                 for (int j = 0; j < SIZE_Y; j++) {
                     board.shotAtTheEnemyShip(i, j);
-
                 }
             }
         board.print();
         System.out.println("The Current Game is Over: " + board.isGameOver());
-
     }
-
 }
 
 

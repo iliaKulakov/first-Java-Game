@@ -8,6 +8,7 @@ import io.github.maventest.model.unit.Unit;
 import io.github.maventest.model.unit.UnitType;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private static final int BOAT = 4;
@@ -26,6 +27,10 @@ public class Ocean implements Board {
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
+    public void setShipsDestroyed(int newShipsDestroyed) {
+        shipsDestroyed = shipsDestroyed + newShipsDestroyed;
+    }
+
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
     }
@@ -37,7 +42,6 @@ public class Ocean implements Board {
     }
 
     public void buildAllShips() {
-//        TODO: Почему не ENUM?
         createShip(BOAT, ShipType.Boat);
         createShip(TWO_DECK_SHIP, ShipType.TwoDeckShip);
         createShip(KARAS, ShipType.Karas);
@@ -78,7 +82,6 @@ public class Ocean implements Board {
         int shipLength = ship.getSize();
         new CellSet<>();
         CellSet<Cell> shipCells;
-//      TODO: Сформировать координаты отностительно занятости и позции
         shipCells = this.generateCell(shipLength, horizontal);
 
         try {
@@ -174,7 +177,6 @@ public class Ocean implements Board {
             } else {
                 return false;
             }
-
         } else if (H <= shipLengthVar) {
             return true;
         } else {
@@ -184,18 +186,16 @@ public class Ocean implements Board {
 
     @Override
     public void shotAtTheEnemyShip(int weight, int height) {
-        boolean hit = false;
 
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
 
                 if (item.getKey().contains(cellVar)) {
-
                     item.getValue().toRegisterTheShot();
-                    if (!item.getValue().checkIsAlive()){
+                     if (!item.getValue().checkIsAlive()){
                         shipsDestroyed = shipsDestroyed + 1;
-                    }
+                     }
                     boardCells[weight][height] = 99;
                 }
             }
