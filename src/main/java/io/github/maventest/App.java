@@ -1,21 +1,20 @@
 package io.github.maventest;
 
+
 import io.github.maventest.menu.MainMenu;
 import io.github.maventest.menu.Menu;
 import io.github.maventest.model.board.Board;
 import io.github.maventest.model.board.Ocean;
+import io.github.maventest.model.board.PlayersThread;
 
 import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
 
-        //Menu mainMenu = new MainMenu();
-       // mainMenu.interactWithMenu();
+        Menu mainMenu = new MainMenu();
+        mainMenu.interactWithMenu();
 
-        Thread mainThread = Thread.currentThread();
-        System.out.println("Текущий поток исполнения " + mainThread.getName());
-        mainThread.setName("Поток игрока");
 
       /*  Board board = new Ocean();
         board.init();
