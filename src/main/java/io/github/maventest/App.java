@@ -13,7 +13,7 @@ public class App {
         Menu mainMenu = new MainMenu();
         mainMenu.interactWithMenu();
 
-        Board board = new Ocean();
+      /*  Board board = new Ocean();
         board.init();
         ((Ocean) board).printUnits();
          int SIZE_X = 10;
@@ -26,7 +26,7 @@ public class App {
         board.print();
         System.out.println("The Current Game is Over: " + board.isGameOver());
 
-
+*/
     }
 
 
