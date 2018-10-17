@@ -10,8 +10,12 @@ import java.util.Random;
 public class App {
     public static void main(String[] args) {
 
-        Menu mainMenu = new MainMenu();
-        mainMenu.interactWithMenu();
+        //Menu mainMenu = new MainMenu();
+       // mainMenu.interactWithMenu();
+
+        Thread mainThread = Thread.currentThread();
+        System.out.println("Текущий поток исполнения " + mainThread.getName());
+        mainThread.setName("Поток игрока");
 
       /*  Board board = new Ocean();
         board.init();
