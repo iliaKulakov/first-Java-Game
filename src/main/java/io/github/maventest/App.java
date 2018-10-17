@@ -1,5 +1,7 @@
 package io.github.maventest;
 
+import io.github.maventest.menu.MainMenu;
+import io.github.maventest.menu.Menu;
 import io.github.maventest.model.board.Board;
 import io.github.maventest.model.board.Ocean;
 
@@ -7,6 +9,9 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
+
+        Menu mainMenu = new MainMenu();
+        mainMenu.interactWithMenu();
 
         Board board = new Ocean();
         board.init();
@@ -20,7 +25,12 @@ public class App {
             }
         board.print();
         System.out.println("The Current Game is Over: " + board.isGameOver());
+
+
     }
+
+
+
 }
 
 
