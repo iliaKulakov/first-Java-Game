@@ -2,6 +2,7 @@ package io.github.maventest.model.board;
 
 public class PlayersThread extends Thread implements Runnable {
 
+    //I think i can delete this class, used for examples
     PlayersThread(String name) {
         super(name);
     }

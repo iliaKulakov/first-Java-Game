@@ -20,5 +20,4 @@ public class DemoExamples {
         System.out.println("The Current Game is Over: " + board.isGameOver());
     }
 
-
 }

@@ -4,8 +4,14 @@ import io.github.maventest.model.board.Board;
 import io.github.maventest.model.board.Ocean;
 
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MainMenu extends AbstractMenu {
+
+    Executor executor = Executors.newCachedThreadPool();
+    //executor.execute(hello);
+     // executor.execute(boardThread);
 
         public MainMenu() {
             super();
@@ -44,7 +50,13 @@ public class MainMenu extends AbstractMenu {
                         break;
                     case 3:
                         System.out.println("Вы ввели число 3 - Автоматическое демо игры. Сам с собой ");
-                        DemoExamples.showDemoGame();
+                        // I will use separate thread for each item menu
+                        Runnable boardThread = ()->{
+
+                            DemoExamples.showDemoGame();
+                        };
+                        executor.execute(boardThread);
+
                         exit = false;
                         break;
                     default:
