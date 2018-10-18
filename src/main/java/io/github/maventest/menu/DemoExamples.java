@@ -5,7 +5,7 @@ import io.github.maventest.model.board.Ocean;
 
 public class DemoExamples {
 
-    public static void showDemoGame(){
+    public static void showDemoGame() {
         Board board = new Ocean();
         board.init();
         ((Ocean) board).printUnits();

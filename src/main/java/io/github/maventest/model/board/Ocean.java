@@ -8,31 +8,30 @@ import io.github.maventest.model.unit.Unit;
 import io.github.maventest.model.unit.UnitType;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private static final int BOAT = 4;
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
-    private static final int TOTAL_SHIPS= 10;
-    private int shipsDestroyed = 0;
+    private static final int TOTAL_SHIPS = 10;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
     private final ShipFactory shipFactory;
     private final ShipPrinter PRINTER = new ShipPrinter();
+    private int shipsDestroyed = 0;
     private int[][] boardCells = new int[SIZE_W][SIZE_H];
     private List<Unit> units = new ArrayList<>();
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
-    public void setShipsDestroyed(int newShipsDestroyed) {
-        shipsDestroyed = shipsDestroyed + newShipsDestroyed;
-    }
-
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
+    }
+
+    public void setShipsDestroyed(int newShipsDestroyed) {
+        shipsDestroyed = shipsDestroyed + newShipsDestroyed;
     }
 
     private void createShip(int shipCount, UnitType<ShipType> shipType) {
@@ -193,9 +192,9 @@ public class Ocean implements Board {
 
                 if (item.getKey().contains(cellVar)) {
                     item.getValue().toRegisterTheShot();
-                     if (!item.getValue().checkIsAlive()){
+                    if (!item.getValue().checkIsAlive()) {
                         shipsDestroyed = shipsDestroyed + 1;
-                     }
+                    }
                     boardCells[weight][height] = 99;
                 }
             }

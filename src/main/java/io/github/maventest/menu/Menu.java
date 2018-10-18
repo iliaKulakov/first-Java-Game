@@ -1,11 +1,11 @@
 package io.github.maventest.menu;
 
 
-    public interface Menu {
+public interface Menu {
 
-        void printMenu();
+    void printMenu();
 
-        void interactWithMenu();
-    }
+    void interactWithMenu();
+}
 
 
