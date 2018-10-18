@@ -1,5 +1,8 @@
 package io.github.maventest.menu;
 
+import io.github.maventest.model.board.Board;
+import io.github.maventest.model.board.Ocean;
+
 import java.util.Scanner;
 
 public class MainMenu extends AbstractMenu {
@@ -12,6 +15,7 @@ public class MainMenu extends AbstractMenu {
         private void initMenuItems() {
             this.items.add("Игра с компьютерным противником (ботом): ");
             this.items.add("Игра ботов между собой: ");
+            this.items.add("Демо игры. Сам с собой: ");
         }
 
         @Override
@@ -36,6 +40,11 @@ public class MainMenu extends AbstractMenu {
                         break;
                     case 2:
                         System.out.println("Вы ввели число 2 - Игра ботов между собой ");
+                        exit = false;
+                        break;
+                    case 3:
+                        System.out.println("Вы ввели число 3 - Автоматическое демо игры. Сам с собой ");
+                        DemoExamples.showDemoGame();
                         exit = false;
                         break;
                     default:
