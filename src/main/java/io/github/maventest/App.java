@@ -8,15 +8,19 @@ import io.github.maventest.model.board.Ocean;
 import io.github.maventest.model.board.PlayersThread;
 
 import java.util.Random;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class App {
     public static void main(String[] args) {
 
+        Runnable hello = ()->{
         Menu mainMenu = new MainMenu();
         mainMenu.interactWithMenu();
+        };
 
-
-      /*  Board board = new Ocean();
+        Runnable boardThread = ()->{
+        Board board = new Ocean();
         board.init();
         ((Ocean) board).printUnits();
          int SIZE_X = 10;
@@ -28,11 +32,15 @@ public class App {
             }
         board.print();
         System.out.println("The Current Game is Over: " + board.isGameOver());
+        };
 
-*/
+
+
+      Executor executor = Executors.newCachedThreadPool();
+      executor.execute(hello);
+     // executor.execute(boardThread);
+
     }
-
-
 
 }
 

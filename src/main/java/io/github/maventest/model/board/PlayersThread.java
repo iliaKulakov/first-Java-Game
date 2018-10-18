@@ -16,9 +16,9 @@ public class PlayersThread extends Thread implements Runnable {
 
     public static void main(String[] args) {
 
-        System.out.println("Main thread started...");
-        new PlayersThread("PlayersThread").start();
-        System.out.println("Main thread finished...");
+       // System.out.println("Main thread started...");
+       // new PlayersThread("PlayersThread").start();
+      //  System.out.println("Main thread finished...");
     }
 }
 
