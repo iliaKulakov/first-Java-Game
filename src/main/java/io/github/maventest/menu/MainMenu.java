@@ -40,7 +40,7 @@ public class MainMenu extends AbstractMenu {
                     System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
 
                     DemoExamples.playerMakesMove();
-                    DemoExamples.aiPlayerMakesMove();
+                    //in progress
 
 
                     exit = false;
@@ -48,14 +48,16 @@ public class MainMenu extends AbstractMenu {
                 case 2:
                     System.out.println("Вы ввели число 2 - Игра ботов между собой ");
 
-                    Runnable boardThread = DemoExamples::showDemoGame;
-                    executor.execute(boardThread);
+                    DemoExamples.aiPlayerOneMakesMove();
 
                     exit = false;
                     break;
                 case 3:
                     System.out.println("Вы ввели число 3 - Автоматическое демо игры. Сам с собой ");
                     // I will use separate thread for each item menu
+
+                    Runnable boardThread = DemoExamples::showDemoGame;
+                    executor.execute(boardThread);
 
                     exit = false;
                     break;

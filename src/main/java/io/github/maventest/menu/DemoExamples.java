@@ -3,7 +3,14 @@ package io.github.maventest.menu;
 import io.github.maventest.model.board.Board;
 import io.github.maventest.model.board.Ocean;
 
+import java.util.Random;
+
 public class DemoExamples {
+    private static final int SIZE_W = 10;
+    private static final int SIZE_H = 10;
+    private static Board aiPlayerOneBoard = new Ocean();
+    private static Board aiPlayerTwoBoard = new Ocean();
+    private static final Random randomGenerator = new Random();
 
     public static void showDemoGame() {
         Board board = new Ocean();
@@ -23,29 +30,20 @@ public class DemoExamples {
     public static void playerMakesMove() {
         Board playersBoard = new Ocean();
         playersBoard.init();
-       // ((Ocean) playersBoard).printUnits();
         playersBoard.print();
-
-
     }
 
     public static void aiPlayerOneMakesMove() {
-        Board aiPlayersBoard = new Ocean();
-        aiPlayersBoard.init();
-       // ((Ocean) aiPlayersBoard).printUnits();
-        aiPlayersBoard.print();
-
-
+        aiPlayerOneBoard.init();
+        aiPlayerOneBoard.print();
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_W - 1);
+        aiPlayerTwoBoard.shotAtTheEnemyShip(randomH,randomH);
+        aiPlayerTwoBoard.isGameOver();
     }
 
     public static void aiPlayerTwoMakesMove() {
-        Board aiPlayerTwoBoard = new Ocean();
         aiPlayerTwoBoard.init();
-
         aiPlayerTwoBoard.print();
-
     }
-
-
-
 }
