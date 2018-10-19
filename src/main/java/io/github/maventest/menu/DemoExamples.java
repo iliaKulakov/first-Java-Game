@@ -12,6 +12,8 @@ public class DemoExamples {
     private static Board aiPlayerTwoBoard = new Ocean();
     private static final Random randomGenerator = new Random();
 
+
+
     public static void showDemoGame() {
         Board board = new Ocean();
         board.init();
@@ -34,16 +36,25 @@ public class DemoExamples {
     }
 
     public static void aiPlayerOneMakesMove() {
-        aiPlayerOneBoard.init();
-        aiPlayerOneBoard.print();
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
+        aiPlayerOneBoard.init();
+        aiPlayerOneBoard.print();
         aiPlayerTwoBoard.shotAtTheEnemyShip(randomH,randomH);
-        aiPlayerTwoBoard.isGameOver();
     }
 
     public static void aiPlayerTwoMakesMove() {
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_W - 1);
         aiPlayerTwoBoard.init();
         aiPlayerTwoBoard.print();
+        aiPlayerOneBoard.shotAtTheEnemyShip(randomH,randomH);
     }
+
+    public static void startGameBetweenTwoAiPlayers(){
+        aiPlayerOneMakesMove();
+        aiPlayerTwoMakesMove();
+
+    }
+
 }
