@@ -20,4 +20,32 @@ public class DemoExamples {
         System.out.println("The Current Game is Over: " + board.isGameOver());
     }
 
+    public static void playerMakesMove() {
+        Board playersBoard = new Ocean();
+        playersBoard.init();
+       // ((Ocean) playersBoard).printUnits();
+        playersBoard.print();
+
+
+    }
+
+    public static void aiPlayerOneMakesMove() {
+        Board aiPlayersBoard = new Ocean();
+        aiPlayersBoard.init();
+       // ((Ocean) aiPlayersBoard).printUnits();
+        aiPlayersBoard.print();
+
+
+    }
+
+    public static void aiPlayerTwoMakesMove() {
+        Board aiPlayerTwoBoard = new Ocean();
+        aiPlayerTwoBoard.init();
+
+        aiPlayerTwoBoard.print();
+
+    }
+
+
+
 }
