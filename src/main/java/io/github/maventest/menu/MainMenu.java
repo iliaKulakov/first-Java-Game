@@ -39,8 +39,7 @@ public class MainMenu extends AbstractMenu {
                 case 1:
                     System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
 
-                    DemoExamples.playerMakesMove();
-                    //in progress
+                    PlayerVsBot.playerMakesMove();
 
 
                     exit = false;
