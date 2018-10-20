@@ -38,11 +38,20 @@ public class PlayerVsBot {
     public static void playerMakesMove() {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
-       // BotBoard.shotAtTheEnemyShip(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY());
         if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY()))
             {System.out.println("Удачный выстрел. Есть попадание");
         } else
             { System.out.println("Удачный выстрел. Есть попадание");}
+
+    }
+
+    public static void botMakesMove() {
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_W - 1);
+        if(PlayerBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
+            {System.out.println("Удачный выстрел. Есть попадание");
+        } else
+            { System.out.println("Бот сделал ход. Неудачный выстрел.");}
     }
 
     public static int shootFromKeyBoardCoordinateX() {
@@ -59,29 +68,20 @@ public class PlayerVsBot {
         return yCoordinateFromKeyBoard;
     }
 
-    public static boolean checkSuccessfulShot(Board object){
-        if (object.isGameOver()){
+    public static boolean checkStatusForBotBoard(){
+        if (BotBoard.isGameOver()){
             return true;
         } else {
             return false;
         }
-
     }
 
-/*
-
-    public static void BotMakesMove() {
-        int randomW = randomGenerator.nextInt(SIZE_W - 1);
-        int randomH = randomGenerator.nextInt(SIZE_W - 1);
-        aiPlayerTwoBoard.init();
-        aiPlayerTwoBoard.print();
-        aiPlayerOneBoard.shotAtTheEnemyShip(randomH,randomH);
+    public static boolean checkStatusForPlayerBoard(){
+        if (PlayerBoard.isGameOver()){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static void startGameBetweenTwoAiPlayers(){
-        aiPlayerOneMakesMove();
-        aiPlayerTwoMakesMove();
-
-
-    }*/
 }

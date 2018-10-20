@@ -39,9 +39,23 @@ public class MainMenu extends AbstractMenu {
                 case 1:
                     System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
                     PlayerVsBot.startBotBoardInitialization();
-                   // PlayerVsBot.startBotBoardInitialization();
+                    PlayerVsBot.startPlayerBoardInitialization();
+
+                  //  while (!PlayerVsBot.checkStatusForPlayerBoard()) {
                     PlayerVsBot.playerMakesMove();
                     PlayerVsBot.toPrintBotBoard();
+                    PlayerVsBot.botMakesMove();
+                  /*  if(PlayerVsBot.checkStatusForBotBoard()) {
+                        PlayerVsBot.botMakesMove();
+                        if(PlayerVsBot.checkStatusForPlayerBoard())
+                            {System.out.println("Игрок проиграл, выиграл бот");
+                            } else {
+                         break;
+                        }
+
+                    }
+
+                    }*/
 
                     exit = false;
                     break;
