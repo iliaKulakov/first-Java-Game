@@ -38,9 +38,10 @@ public class MainMenu extends AbstractMenu {
             switch (command) {
                 case 1:
                     System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
-
+                    PlayerVsBot.startBotBoardInitialization();
+                   // PlayerVsBot.startBotBoardInitialization();
                     PlayerVsBot.playerMakesMove();
-
+                    PlayerVsBot.toPrintBotBoard();
 
                     exit = false;
                     break;

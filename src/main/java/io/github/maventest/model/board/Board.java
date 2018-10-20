@@ -12,6 +12,8 @@ public interface Board<T> {
 
     void shotAtTheEnemyShip(int weight, int height);
 
+    boolean shotAtTheEnemyShipBoolean(int weight, int height);
+
     boolean isGameOver();
 
 

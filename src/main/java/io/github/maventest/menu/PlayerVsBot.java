@@ -15,14 +15,34 @@ public class PlayerVsBot {
     private static int xCoordinateFromKeyBoard;
     private static int yCoordinateFromKeyBoard;
 
+    public static void startBotBoardInitialization(){
+        BotBoard.init();
+        BotBoard.print();
+    }
+
+    public static void startPlayerBoardInitialization(){
+        PlayerBoard.init();
+        PlayerBoard.print();
+    }
+
+    public static void toPrintBotBoard(){
+        System.out.println("Поле с кораблями бота :");
+        BotBoard.print();
+    }
+
+    public static void toPrintPlayerBoard(){
+        System.out.println("Поле с кораблями игрока человека :");
+        PlayerBoard.print();
+    }
+
     public static void playerMakesMove() {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
-        BotBoard.init();
-        BotBoard.print();
-        BotBoard.shotAtTheEnemyShip(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY());
-        PlayerVsBot.checkSuccessfulShot(BotBoard);
-
+       // BotBoard.shotAtTheEnemyShip(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY());
+        if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY()))
+            {System.out.println("Удачный выстрел. Есть попадание");
+        } else
+            { System.out.println("Удачный выстрел. Есть попадание");}
     }
 
     public static int shootFromKeyBoardCoordinateX() {

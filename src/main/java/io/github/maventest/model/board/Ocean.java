@@ -201,6 +201,27 @@ public class Ocean implements Board {
         }
     }
 
+    @Override
+    public boolean shotAtTheEnemyShipBoolean(int weight, int height){
+        if (this.boardCells[weight][height] != 0) {
+            Cell cellVar = new Cell(weight, height);
+            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+
+                if (item.getKey().contains(cellVar)) {
+                    item.getValue().toRegisterTheShot();
+                    if (!item.getValue().checkIsAlive()) {
+                        shipsDestroyed = shipsDestroyed + 1;
+
+                    }
+                    boardCells[weight][height] = 99;
+                    return true;
+                }
+            }
+        }
+                    return false;
+    }
+
+
     public boolean isGameOver() {
         return (this.shipsDestroyed == TOTAL_SHIPS);
 
