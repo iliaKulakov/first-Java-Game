@@ -63,7 +63,23 @@ public class MainMenu extends AbstractMenu {
                 case 2:
                     System.out.println("Вы ввели число 2 - Игра ботов между собой ");
 
-                    DemoExamples.aiPlayerOneMakesMove();
+                    PlayerVsBotNonStaticExample botVsBot = new PlayerVsBotNonStaticExample();
+                    System.out.println("Инициализация и заполнение кораблями игрового поля - Бота");
+                    botVsBot.startBotBoardInitialization_NonStatic();
+                    System.out.println("Инициализация и заполнение кораблями игрового поля - Другого Бота");
+                    botVsBot.startAnotherBotBoardInitialization_NonStatic();
+
+                    while (!(botVsBot.checkStatusForAnotherBotBoard_NonStatic() || botVsBot.checkStatusForBotBoard_NonStatic())) {
+                        System.out.println("Другой Бот делает ход");
+                        botVsBot.anotherBotMakesMove_NonStatic();
+                        System.out.println("Доска бота. После выстрела игрока");
+                        botVsBot.toPrintBotBoard_NonStatic();
+
+                        System.out.println("Бот делает ход");
+                        botVsBot.botMakesMove_NonStatic();
+                        System.out.println("Доска игрока. После выстрела бота");
+                        botVsBot.toPrintAnotherBotBoard_NonStatic();
+                    }
 
                     exit = false;
                     break;
