@@ -36,8 +36,7 @@ public class PlayerVsBot {
     }
 
     public static void playerMakesMove() {
-        int randomW = randomGenerator.nextInt(SIZE_W - 1);
-        int randomH = randomGenerator.nextInt(SIZE_W - 1);
+
         if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY()))
             {System.out.println("Удачный выстрел. Есть попадание");
         } else

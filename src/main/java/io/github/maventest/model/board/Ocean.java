@@ -209,11 +209,13 @@ public class Ocean implements Board {
 
                 if (item.getKey().contains(cellVar)) {
                     item.getValue().toRegisterTheShot();
+                    boardCells[weight][height] = 99;
+
+
                     if (!item.getValue().checkIsAlive()) {
                         shipsDestroyed = shipsDestroyed + 1;
 
                     }
-                    boardCells[weight][height] = 99;
                     return true;
                 }
             }
