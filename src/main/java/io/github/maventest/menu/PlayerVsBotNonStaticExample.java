@@ -13,8 +13,8 @@ public class PlayerVsBotNonStaticExample {
     private  final Random randomGenerator = new Random();
     private  final int SIZE_W = 10;
     private  final int SIZE_H = 10;
-    private  int xCoordinateFromKeyBoard;
-    private  int yCoordinateFromKeyBoard;
+    private static int xCoordinateFromKeyBoard;
+    private static int yCoordinateFromKeyBoard;
 
     public  void startBotBoardInitialization_NonStatic(){
         BotBoard.init();
@@ -37,10 +37,12 @@ public class PlayerVsBotNonStaticExample {
     }
 
     public  void playerMakesMove_NonStatic() {
-        //поменял
-        if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY()))
+
+        if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateX_NonStatic(),
+                PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateY_NonStatic()))
         {System.out.println("Удачный выстрел. Есть попадание");
-        BotBoard.setCoordinates(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY());
+        BotBoard.setCoordinates(PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateX_NonStatic(),
+                PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateY_NonStatic());
         } else
         { System.out.println("Удачный выстрел. Есть попадание");}
 
@@ -55,14 +57,14 @@ public class PlayerVsBotNonStaticExample {
         { System.out.println("Бот сделал ход. Неудачный выстрел.");}
     }
 
-    public  int shootFromKeyBoardCoordinateX_NonStatic() {
+    public static int shootFromKeyBoardCoordinateX_NonStatic() {
         Scanner scX = new Scanner(System.in);
         System.out.println("Введите координату Х: ");
         xCoordinateFromKeyBoard = scX.nextInt();
         return xCoordinateFromKeyBoard;
     }
 
-    public  int shootFromKeyBoardCoordinateY_NonStatic() {
+    public static int shootFromKeyBoardCoordinateY_NonStatic() {
         Scanner scY = new Scanner(System.in);
         System.out.println("Введите координату Y: ");
         yCoordinateFromKeyBoard = scY.nextInt();
