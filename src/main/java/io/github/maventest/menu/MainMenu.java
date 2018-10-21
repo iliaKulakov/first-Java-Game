@@ -36,26 +36,23 @@ public class MainMenu extends AbstractMenu {
                 command = sc.nextInt();
             } while (command <= 0);
             switch (command) {
+
                 case 1:
                     System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
                     PlayerVsBot.startBotBoardInitialization();
                     PlayerVsBot.startPlayerBoardInitialization();
 
-                  //  while (!PlayerVsBot.checkStatusForPlayerBoard()) {
-                    PlayerVsBot.playerMakesMove();
-                    PlayerVsBot.toPrintBotBoard();
-                    PlayerVsBot.botMakesMove();
-                  /*  if(PlayerVsBot.checkStatusForBotBoard()) {
+                    while (!PlayerVsBot.checkStatusForPlayerBoard() || !PlayerVsBot.checkStatusForBotBoard()) {
+                        System.out.println("Игрок делает ход");
+                        PlayerVsBot.playerMakesMove();
+                        System.out.println("Доска бота. После выстрела игрока");
+                        PlayerVsBot.toPrintBotBoard();
+
+                        System.out.println("Бот делает ход");
                         PlayerVsBot.botMakesMove();
-                        if(PlayerVsBot.checkStatusForPlayerBoard())
-                            {System.out.println("Игрок проиграл, выиграл бот");
-                            } else {
-                         break;
-                        }
-
+                        System.out.println("Доска игрока. После выстрела бота");
+                        PlayerVsBot.toPrintPlayerBoard();
                     }
-
-                    }*/
 
                     exit = false;
                     break;
@@ -86,7 +83,6 @@ public class MainMenu extends AbstractMenu {
             } // end switch
 
         } while (!exit);
-
     }
 }
 
