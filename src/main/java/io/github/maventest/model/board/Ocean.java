@@ -26,6 +26,15 @@ public class Ocean implements Board {
     private Map<CellSet<Cell>, Unit> boats = new HashMap<>();
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
+
+
+    @Override
+    public void setCoordinates(int x, int y){
+        this.boardCells[x][y] = 88;
+    }
+
+
+
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
     }
@@ -201,6 +210,7 @@ public class Ocean implements Board {
         }
     }
 
+    /*
     @Override
     public boolean shotAtTheEnemyShipBoolean(int weight, int height){
         if (this.boardCells[weight][height] != 0) {
@@ -208,8 +218,9 @@ public class Ocean implements Board {
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
 
                 if (item.getKey().contains(cellVar)) {
-                    item.getValue().toRegisterTheShot();
                     boardCells[weight][height] = 99;
+                    item.getValue().toRegisterTheShot();
+
 
 
                     if (!item.getValue().checkIsAlive()) {
@@ -221,13 +232,38 @@ public class Ocean implements Board {
             }
         }
                     return false;
+    }*/
+
+
+    @Override
+    public boolean shotAtTheEnemyShipBoolean(int weight, int height){
+        if (this.boardCells[weight][height] != 0) {
+            Cell cellVar = new Cell(weight, height);
+            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+
+                if (item.getKey().contains(cellVar)) {
+                    //boardCells[weight][height] = 99;
+                    item.getValue().toRegisterTheShot();
+
+                    if (!item.getValue().checkIsAlive()) {
+                        shipsDestroyed = shipsDestroyed + 1;
+
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
     }
+
 
 
     public boolean isGameOver() {
         return (this.shipsDestroyed == TOTAL_SHIPS);
 
     }
+
+
 
 }
 

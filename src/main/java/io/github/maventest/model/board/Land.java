@@ -29,6 +29,9 @@ public class Land implements Board {
         return true;
     }
 
+    public void setCoordinates(int x, int y){};
+
+
 }
 
 

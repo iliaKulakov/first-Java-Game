@@ -16,5 +16,6 @@ public interface Board<T> {
 
     boolean isGameOver();
 
+    void setCoordinates(int x, int y);
 
 }

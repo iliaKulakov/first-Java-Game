@@ -30,5 +30,8 @@ public class Sky implements Board {
         return true;
     }
 
+    public void setCoordinates(int x, int y){};
+
+
 }
 

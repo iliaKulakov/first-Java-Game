@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+
 public class MainMenu extends AbstractMenu {
 
     Executor executor = Executors.newCachedThreadPool();
@@ -38,20 +39,23 @@ public class MainMenu extends AbstractMenu {
             switch (command) {
 
                 case 1:
-                    System.out.println("Вы ввели число 1 - Игра с компьютерным противником (ботом) ");
-                    PlayerVsBot.startBotBoardInitialization();
-                    PlayerVsBot.startPlayerBoardInitialization();
 
-                    while (!PlayerVsBot.checkStatusForPlayerBoard() || !PlayerVsBot.checkStatusForBotBoard()) {
+                    PlayerVsBotNonStaticExample playerVsBot = new PlayerVsBotNonStaticExample();
+                    System.out.println("Инициализация и заполнение кораблями игрового поля - Бота");
+                    playerVsBot.startBotBoardInitialization_NonStatic();
+                    System.out.println("Инициализация и заполнение кораблями игрового поля - Игрока");
+                    playerVsBot.startPlayerBoardInitialization_NonStatic();
+
+                    while (!(playerVsBot.checkStatusForPlayerBoard_NonStatic() || playerVsBot.checkStatusForBotBoard_NonStatic())) {
                         System.out.println("Игрок делает ход");
-                        PlayerVsBot.playerMakesMove();
+                        playerVsBot.playerMakesMove_NonStatic();
                         System.out.println("Доска бота. После выстрела игрока");
-                        PlayerVsBot.toPrintBotBoard();
+                        playerVsBot.toPrintBotBoard_NonStatic();
 
                         System.out.println("Бот делает ход");
-                        PlayerVsBot.botMakesMove();
+                        playerVsBot.botMakesMove_NonStatic();
                         System.out.println("Доска игрока. После выстрела бота");
-                        PlayerVsBot.toPrintPlayerBoard();
+                        playerVsBot.toPrintPlayerBoard_NonStatic();
                     }
 
                     exit = false;
