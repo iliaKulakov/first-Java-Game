@@ -38,7 +38,7 @@ public class PlayerVsBotNonStaticExample {
 
     public  void playerMakesMove_NonStatic() {
         //поменял
-        if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateY(),PlayerVsBot.shootFromKeyBoardCoordinateX()))
+        if(BotBoard.shotAtTheEnemyShipBoolean(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY()))
         {System.out.println("Удачный выстрел. Есть попадание");
         BotBoard.setCoordinates(PlayerVsBot.shootFromKeyBoardCoordinateX(),PlayerVsBot.shootFromKeyBoardCoordinateY());
         } else
