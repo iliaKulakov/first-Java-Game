@@ -11,6 +11,7 @@ public class PlayerVsBotNonStaticExample {
     private  Board botBoard = new Ocean();
     private  Board anotherBotBoard = new Ocean();
     private  Board playerBoard = new Ocean();
+    private  Board twoAnotherBotBoard = new Ocean();
     private  final Random randomGenerator = new Random();
     private  final int SIZE_W = 10;
     private  final int SIZE_H = 10;
@@ -32,6 +33,11 @@ public class PlayerVsBotNonStaticExample {
         playerBoard.print();
     }
 
+    public void startwoAnotherBotBoardInitialisation(){
+        twoAnotherBotBoard.init();
+        twoAnotherBotBoard.print();
+    }
+
     public  void toPrintBotBoard_NonStatic(){
         System.out.println("Поле с кораблями бота :");
         botBoard.print();
@@ -45,6 +51,11 @@ public class PlayerVsBotNonStaticExample {
     public  void toPrintAnotherBotBoard_NonStatic(){
         System.out.println("Поле с кораблями другого бота :");
         anotherBotBoard.print();
+    }
+
+    public void toPrintTwoAnotherBotBoard(){
+        System.out.println("Поле с кораблями другого второго бота :");
+        twoAnotherBotBoard.print();
     }
 
     public  void playerMakesMove_NonStatic() {
@@ -71,12 +82,23 @@ public class PlayerVsBotNonStaticExample {
     public  void anotherBotMakesMove_NonStatic() {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
-        if(anotherBotBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
+        if(twoAnotherBotBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
         {System.out.println("Другой бот Удачный выстрел. Есть попадание");
-            botBoard.setCoordinates(randomW,randomH);
+            twoAnotherBotBoard.setCoordinates(randomW,randomH);
         } else
         { System.out.println("Другой бот сделал ход. Неудачный выстрел.");}
     }
+
+    public  void twoAnotherBotMakesMove() {
+        int randomW = randomGenerator.nextInt(SIZE_W - 1);
+        int randomH = randomGenerator.nextInt(SIZE_W - 1);
+        if(anotherBotBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
+        {System.out.println("Другой второй бот Удачный выстрел. Есть попадание");
+            anotherBotBoard.setCoordinates(randomW,randomH);
+        } else
+        { System.out.println("Другой второй бот сделал ход. Неудачный выстрел.");}
+    }
+
 
     public static int shootFromKeyBoardCoordinateX_NonStatic() {
         Scanner scX = new Scanner(System.in);
@@ -116,5 +138,12 @@ public class PlayerVsBotNonStaticExample {
         }
     }
 
+    public  boolean checkStatusForTwoAnotherBotBoard_NonStatic(){
+        if (twoAnotherBotBoard.isGameOver()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

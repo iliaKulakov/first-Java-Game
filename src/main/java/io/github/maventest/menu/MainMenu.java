@@ -65,19 +65,19 @@ public class MainMenu extends AbstractMenu {
 
                     PlayerVsBotNonStaticExample botVsBot = new PlayerVsBotNonStaticExample();
                     System.out.println("Инициализация и заполнение кораблями игрового поля - Бота");
-                    botVsBot.startBotBoardInitialization_NonStatic();
-                    System.out.println("Инициализация и заполнение кораблями игрового поля - Другого Бота");
                     botVsBot.startAnotherBotBoardInitialization_NonStatic();
+                    System.out.println("Инициализация и заполнение кораблями игрового поля - Другого Бота");
+                    botVsBot.startwoAnotherBotBoardInitialisation();
 
-                    while (!(botVsBot.checkStatusForAnotherBotBoard_NonStatic() || botVsBot.checkStatusForBotBoard_NonStatic())) {
-                        System.out.println("Другой Бот делает ход");
-                        botVsBot.anotherBotMakesMove_NonStatic();
-                        System.out.println("Доска бота. После выстрела игрока");
-                        botVsBot.toPrintBotBoard_NonStatic();
-
+                    while (!(botVsBot.checkStatusForAnotherBotBoard_NonStatic() || botVsBot.checkStatusForTwoAnotherBotBoard_NonStatic())) {
                         System.out.println("Бот делает ход");
-                        botVsBot.botMakesMove_NonStatic();
-                        System.out.println("Доска игрока. После выстрела бота");
+                        botVsBot.anotherBotMakesMove_NonStatic();
+                        System.out.println("Доска второго бота. После выстрела первого");
+                        botVsBot.toPrintTwoAnotherBotBoard();
+
+                        System.out.println("Второй Бот делает ход");
+                        botVsBot.twoAnotherBotMakesMove();
+                        System.out.println("Доска первого бота после выстрела первого. ");
                         botVsBot.toPrintAnotherBotBoard_NonStatic();
                     }
 
