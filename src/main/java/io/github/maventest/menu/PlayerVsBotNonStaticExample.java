@@ -17,6 +17,8 @@ public class PlayerVsBotNonStaticExample {
     private static int xCoordinateFromKeyBoard;
     private static int yCoordinateFromKeyBoard;
 
+
+
     public void startAnotherBotBoardInitialization_NonStatic(){
         anotherBotBoard.init();
         anotherBotBoard.print();
@@ -52,11 +54,10 @@ public class PlayerVsBotNonStaticExample {
 
         if(botBoard.shotAtTheEnemyShipBoolean(PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateX_NonStatic(),
                 PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateY_NonStatic()))
-        {System.out.println("Удачный выстрел. Есть попадание");
-        botBoard.setCoordinates(PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateX_NonStatic(),
-                PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateY_NonStatic());
+        {System.out.println("Удачный выстрел игрока. Есть попадание");
+        botBoard.setCoordinates(xCoordinateFromKeyBoard, yCoordinateFromKeyBoard);
         } else
-        { System.out.println("Удачный выстрел. Есть попадание");}
+        { System.out.println("Игрок сделал неудачный выстрел. ");}
 
     }
 
@@ -64,7 +65,7 @@ public class PlayerVsBotNonStaticExample {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
         if(playerBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
-        {System.out.println("Удачный выстрел. Есть попадание");
+        {System.out.println("Удачный выстрел бота. Есть попадание");
         } else
         { System.out.println("Бот сделал ход. Неудачный выстрел.");}
     }

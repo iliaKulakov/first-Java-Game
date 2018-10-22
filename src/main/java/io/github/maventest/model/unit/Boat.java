@@ -24,7 +24,6 @@ public class Boat implements Ship {
         } else {
             this.isAlive = false;
         }
-
         return isAlive;
     }
 
