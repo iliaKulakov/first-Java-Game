@@ -17,8 +17,6 @@ public class PlayerVsBotNonStaticExample {
     private static int xCoordinateFromKeyBoard;
     private static int yCoordinateFromKeyBoard;
 
-
-
     public void startAnotherBotBoardInitialization_NonStatic(){
         anotherBotBoard.init();
         anotherBotBoard.print();
@@ -45,17 +43,16 @@ public class PlayerVsBotNonStaticExample {
     }
 
     public  void toPrintAnotherBotBoard_NonStatic(){
-        System.out.println("Поле с кораблями бота :");
+        System.out.println("Поле с кораблями другого бота :");
         anotherBotBoard.print();
     }
-
 
     public  void playerMakesMove_NonStatic() {
 
         if(botBoard.shotAtTheEnemyShipBoolean(PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateX_NonStatic(),
                 PlayerVsBotNonStaticExample.shootFromKeyBoardCoordinateY_NonStatic()))
         {System.out.println("Удачный выстрел игрока. Есть попадание");
-        botBoard.setCoordinates(xCoordinateFromKeyBoard, yCoordinateFromKeyBoard);
+            botBoard.setCoordinates(xCoordinateFromKeyBoard, yCoordinateFromKeyBoard);
         } else
         { System.out.println("Игрок сделал неудачный выстрел. ");}
 
@@ -66,6 +63,7 @@ public class PlayerVsBotNonStaticExample {
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
         if(playerBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
         {System.out.println("Удачный выстрел бота. Есть попадание");
+            playerBoard.setCoordinates(randomW,randomH);
         } else
         { System.out.println("Бот сделал ход. Неудачный выстрел.");}
     }
@@ -74,11 +72,11 @@ public class PlayerVsBotNonStaticExample {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
         if(anotherBotBoard.shotAtTheEnemyShipBoolean(randomW,randomH))
-        {System.out.println("Удачный выстрел. Есть попадание");
+        {System.out.println("Другой бот Удачный выстрел. Есть попадание");
+            botBoard.setCoordinates(randomW,randomH);
         } else
-        { System.out.println("Бот сделал ход. Неудачный выстрел.");}
+        { System.out.println("Другой бот сделал ход. Неудачный выстрел.");}
     }
-
 
     public static int shootFromKeyBoardCoordinateX_NonStatic() {
         Scanner scX = new Scanner(System.in);

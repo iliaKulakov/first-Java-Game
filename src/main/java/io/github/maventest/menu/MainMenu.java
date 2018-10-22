@@ -85,8 +85,6 @@ public class MainMenu extends AbstractMenu {
                     break;
                 case 3:
                     System.out.println("Вы ввели число 3 - Автоматическое демо игры. Сам с собой ");
-                    // I will use separate thread for each item menu
-
                     Runnable boardThread = DemoExamples::showDemoGame;
                     executor.execute(boardThread);
 
