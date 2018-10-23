@@ -8,11 +8,9 @@ import java.util.Random;
 public class DemoExamples {
     private static final int SIZE_W = 10;
     private static final int SIZE_H = 10;
+    private static final Random randomGenerator = new Random();
     private static Board aiPlayerOneBoard = new Ocean();
     private static Board aiPlayerTwoBoard = new Ocean();
-    private static final Random randomGenerator = new Random();
-
-
 
     public static void showDemoGame() {
         Board board = new Ocean();
@@ -40,7 +38,7 @@ public class DemoExamples {
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
         aiPlayerOneBoard.init();
         aiPlayerOneBoard.print();
-        aiPlayerTwoBoard.shotAtTheEnemyShip(randomH,randomH);
+        aiPlayerTwoBoard.shotAtTheEnemyShip(randomH, randomH);
     }
 
     public static void aiPlayerTwoMakesMove() {
@@ -48,10 +46,10 @@ public class DemoExamples {
         int randomH = randomGenerator.nextInt(SIZE_W - 1);
         aiPlayerTwoBoard.init();
         aiPlayerTwoBoard.print();
-        aiPlayerOneBoard.shotAtTheEnemyShip(randomH,randomH);
+        aiPlayerOneBoard.shotAtTheEnemyShip(randomH, randomH);
     }
 
-    public static void startGameBetweenTwoAiPlayers(){
+    public static void startGameBetweenTwoAiPlayers() {
         aiPlayerOneMakesMove();
         aiPlayerTwoMakesMove();
 

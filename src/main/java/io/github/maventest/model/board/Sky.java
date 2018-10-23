@@ -23,14 +23,18 @@ public class Sky implements Board {
     public void shotAtTheEnemyShip(int weight, int height) {
     }
 
-    public boolean shotAtTheEnemyShipBoolean(int weight, int height) { return true;
+    public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
+        return true;
     }
 
     public boolean isGameOver() {
         return true;
     }
 
-    public void setCoordinates(int x, int y){};
+    public void setCoordinates(int x, int y) {
+    }
+
+    ;
 
 
 }

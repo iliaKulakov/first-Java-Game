@@ -27,15 +27,13 @@ public class Ocean implements Board {
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
 
-    @Override
-    public void setCoordinates(int x, int y){
-        this.boardCells[x][y] = 88;
-    }
-
-
-
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
+    }
+
+    @Override
+    public void setCoordinates(int x, int y) {
+        this.boardCells[x][y] = 88;
     }
 
     public void setShipsDestroyed(int newShipsDestroyed) {
@@ -210,7 +208,7 @@ public class Ocean implements Board {
     }
 
     @Override
-    public boolean shotAtTheEnemyShipBoolean(int weight, int height){
+    public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
@@ -231,12 +229,10 @@ public class Ocean implements Board {
     }
 
 
-
     public boolean isGameOver() {
         return (this.shipsDestroyed == TOTAL_SHIPS);
 
     }
-
 
 
 }
