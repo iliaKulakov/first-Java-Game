@@ -27,6 +27,10 @@ public class Ocean implements Board {
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
 
+    public int[][] getBoardCells() {
+        return boardCells;
+    }
+
     public int getShipsDestroyed() {
         return shipsDestroyed;
     }
@@ -37,11 +41,20 @@ public class Ocean implements Board {
 
     @Override
     public void setCoordinates(int x, int y) {
-        this.boardCells[x][y] = 99;
+        this.boardCells[x][y] = 88;
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+
+                    if(boardCells[i][j] != 0) {
+                        boardCells[i][j] = 88;
+                    } }
+            }
+
     }
 
     public void setShipsDestroyed(int newShipsDestroyed) {
         shipsDestroyed = shipsDestroyed + newShipsDestroyed;
+
     }
 
     private void createShip(int shipCount, UnitType<ShipType> shipType) {
@@ -204,8 +217,9 @@ public class Ocean implements Board {
                     item.getValue().toRegisterTheShot();
                     if (!item.getValue().checkIsAlive()) {
                         shipsDestroyed = shipsDestroyed + 1;
+
                     }
-                    boardCells[weight][height] = 99;
+                  //  boardCells[weight][height] = 99;
                 }
             }
         }
@@ -239,10 +253,10 @@ public class Ocean implements Board {
                 if (item.getKey().contains(cellVar)) {
                     //boardCells[weight][height] = 99;
                     item.getValue().toRegisterTheShot();
-
+                    boardCells[weight][height] = 99;
                     if (!item.getValue().checkIsAlive()) {
                         shipsDestroyed = shipsDestroyed + 1;
-
+                        //boardCells[weight][height] = 99;
                     }
                     return true;
                 }
@@ -278,16 +292,29 @@ public class Ocean implements Board {
 
         if(this.shipsDestroyed == TOTAL_SHIPS){
             System.out.println("Game over. Ships were destroyed =" + shipsDestroyed);
+
+            //for (int i = 0; i < SIZE_H; i++) {
+              //  for (int j = 0; j < SIZE_W; j++) {
+                //    if(boardCells[i][j] != 0)
+                  //  {
+                    //    boardCells[i][j]=99;
+                   // }
+
+                //}
             return true;
-        }
+            }
         System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
         return false;
-    }
+           }
+
+        }
 
 
 
 
-}
+
+
+
 
 
 

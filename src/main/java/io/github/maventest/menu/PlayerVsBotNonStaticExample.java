@@ -141,6 +141,7 @@ public class PlayerVsBotNonStaticExample {
 
     public boolean checkStatusForBotBoard_NonStatic() {
         if (botBoard.isGameOver()) {
+
             return true;
         } else {
             return false;
@@ -165,6 +166,16 @@ public class PlayerVsBotNonStaticExample {
 
     public boolean checkStatusForTwoAnotherBotBoard_NonStatic() {
         if (twoAnotherBotBoard.isGameOver()) {
+
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+
+            if(twoAnotherBotBoard.getBoardCells()[i][j] != 0) {
+                twoAnotherBotBoard.getBoardCells()[i][j]=77;
+            } }
+            }
+            ///////////////////////////////////////////////////////
+
             return true;
         } else {
             return false;

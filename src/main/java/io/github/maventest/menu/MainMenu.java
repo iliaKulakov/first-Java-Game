@@ -88,6 +88,7 @@ public class MainMenu extends AbstractMenu {
                         System.out.println("Бот делает ход");
                         botVsBot.anotherBotMakesMove_NonStatic();
                         System.out.println("Доска второго бота. После выстрела первого");
+
                         botVsBot.toPrintTwoAnotherBotBoard();
                         System.out.println("Кораблей второго бота уничтожено - " + botVsBot.getShipsDestroyedTwoAnotherBot());
                     }

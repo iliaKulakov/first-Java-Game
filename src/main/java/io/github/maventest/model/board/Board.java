@@ -20,6 +20,6 @@ public interface Board<T> {
 
     int getShipsDestroyed();
 
-
+    int[][] getBoardCells();
 
 }

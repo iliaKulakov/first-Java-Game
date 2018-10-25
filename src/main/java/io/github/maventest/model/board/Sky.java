@@ -38,6 +38,11 @@ public class Sky implements Board {
         return 1;
     }
 
+    public int[][] getBoardCells() {
+
+        int[][] temple = new int[10][10];
+        return temple;
+    }
 
 }
 
