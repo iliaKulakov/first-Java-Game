@@ -18,4 +18,8 @@ public interface Board<T> {
 
     void setCoordinates(int x, int y);
 
+    int getShipsDestroyed();
+
+
+
 }

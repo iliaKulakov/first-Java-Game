@@ -33,7 +33,9 @@ public class Land implements Board {
     public void setCoordinates(int x, int y) {
     }
 
-    ;
+    public int getShipsDestroyed() {
+        return 1;
+    }
 
 
 }

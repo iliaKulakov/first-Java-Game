@@ -16,6 +16,7 @@ public class Bomber implements Ship {
 
     @Override
     public void toRegisterTheShot() {
+
         this.lifeBomber = lifeBomber - 1;
     }
 

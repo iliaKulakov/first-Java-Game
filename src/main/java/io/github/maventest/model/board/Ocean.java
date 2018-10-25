@@ -27,13 +27,17 @@ public class Ocean implements Board {
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
 
+    public int getShipsDestroyed() {
+        return shipsDestroyed;
+    }
+
     public Ocean() {
         shipFactory = ShipFactory.getInstance();
     }
 
     @Override
     public void setCoordinates(int x, int y) {
-        this.boardCells[x][y] = 88;
+        this.boardCells[x][y] = 99;
     }
 
     public void setShipsDestroyed(int newShipsDestroyed) {
@@ -209,6 +213,25 @@ public class Ocean implements Board {
 
     @Override
     public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
+       /* if (this.boardCells[weight][height] != 0) {
+            Cell cellVar = new Cell(weight, height);
+            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+
+                if (item.getKey().contains(cellVar)) {
+                    //boardCells[weight][height] = 99;
+                    item.getValue().toRegisterTheShot();
+
+                    if (!item.getValue().checkIsAlive()) {
+                        shipsDestroyed = shipsDestroyed + 1;
+
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+        */
+
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
             for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
@@ -229,10 +252,39 @@ public class Ocean implements Board {
     }
 
 
-    public boolean isGameOver() {
-        return (this.shipsDestroyed == TOTAL_SHIPS);
 
+
+
+    public boolean isGameOver() {
+      //  boolean result = false;
+       //if( Arrays.stream(boardCells).allMatch(s -> s.equals("99"))){
+/*
+
+    /*    for (int i = 0; i < SIZE_H; i++) {
+            for (int j = 0; j < SIZE_W; j++) {
+                if(boardCells[i][j] == 99) {
+                    result =  true;
+                } else {
+                    result = false;
+                }
+            }
+        }
+        return result;*/
+
+
+       // for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+
+         //       if (!item.getValue().checkIsAlive()) {
+
+        if(this.shipsDestroyed == TOTAL_SHIPS){
+            System.out.println("Game over. Ships were destroyed =" + shipsDestroyed);
+            return true;
+        }
+        System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
+        return false;
     }
+
+
 
 
 }

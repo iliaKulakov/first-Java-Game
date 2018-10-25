@@ -52,8 +52,6 @@ public class DemoExamples {
     public static void startGameBetweenTwoAiPlayers() {
         aiPlayerOneMakesMove();
         aiPlayerTwoMakesMove();
-
-
     }
 
 }

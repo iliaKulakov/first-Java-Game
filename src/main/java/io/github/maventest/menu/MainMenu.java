@@ -51,11 +51,13 @@ public class MainMenu extends AbstractMenu {
                         playerVsBot.playerMakesMove_NonStatic();
                         System.out.println("Доска бота. После выстрела игрока");
                         playerVsBot.toPrintBotBoard_NonStatic();
+                        System.out.println("Кораблей бота уничтожено - " + playerVsBot.getShipsDestroyedBot());
 
                         System.out.println("Бот делает ход");
                         playerVsBot.botMakesMove_NonStatic();
                         System.out.println("Доска игрока. После выстрела бота");
                         playerVsBot.toPrintPlayerBoard_NonStatic();
+                        System.out.println("Кораблей игрока уничтожено - " + playerVsBot.getShipsDestroyedplayerBoard());
                     }
 
                     exit = false;
@@ -68,7 +70,7 @@ public class MainMenu extends AbstractMenu {
                     botVsBot.startAnotherBotBoardInitialization_NonStatic();
                     System.out.println("Инициализация и заполнение кораблями игрового поля - Другого Бота");
                     botVsBot.startwoAnotherBotBoardInitialisation();
-
+                    /*
                     while (!(botVsBot.checkStatusForAnotherBotBoard_NonStatic() || botVsBot.checkStatusForTwoAnotherBotBoard_NonStatic())) {
                         System.out.println("Бот делает ход");
                         botVsBot.anotherBotMakesMove_NonStatic();
@@ -79,6 +81,15 @@ public class MainMenu extends AbstractMenu {
                         botVsBot.twoAnotherBotMakesMove();
                         System.out.println("Доска первого бота после выстрела первого. ");
                         botVsBot.toPrintAnotherBotBoard_NonStatic();
+                       // botVsBot.checkStatusForTwoAnotherBotBoard_NonStatic()
+                    }*/
+
+                    while (!(botVsBot.checkStatusForTwoAnotherBotBoard_NonStatic())) {
+                        System.out.println("Бот делает ход");
+                        botVsBot.anotherBotMakesMove_NonStatic();
+                        System.out.println("Доска второго бота. После выстрела первого");
+                        botVsBot.toPrintTwoAnotherBotBoard();
+                        System.out.println("Кораблей второго бота уничтожено - " + botVsBot.getShipsDestroyedTwoAnotherBot());
                     }
 
                     exit = false;
@@ -91,6 +102,7 @@ public class MainMenu extends AbstractMenu {
                     exit = false;
                     break;
                 case 4:
+                    System.out.println("Игра закончена. Выход  ");
                     exit = true;
                     break;
                 default:

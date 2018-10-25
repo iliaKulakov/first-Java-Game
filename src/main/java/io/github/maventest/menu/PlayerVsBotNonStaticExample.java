@@ -18,6 +18,28 @@ public class PlayerVsBotNonStaticExample {
     private Board playerBoard = new Ocean();
     private Board twoAnotherBotBoard = new Ocean();
 
+
+    public int getShipsDestroyedBot(){
+        System.out.println("Кораблей у бота уничтожено");
+        return botBoard.getShipsDestroyed();
+
+    }
+
+    public int getShipsDestroyedanotherBot(){
+        System.out.println("Кораблей у Другого бота уничтожено");
+        return anotherBotBoard.getShipsDestroyed();
+    }
+
+    public int getShipsDestroyedplayerBoard(){
+        System.out.println("Кораблей у игрока уничтожено");
+        return playerBoard.getShipsDestroyed();
+    }
+
+    public int getShipsDestroyedTwoAnotherBot(){
+        System.out.println("Кораблей у Другого второго бота уничтожено");
+        return twoAnotherBotBoard.getShipsDestroyed();
+    }
+
     public static int shootFromKeyBoardCoordinateX_NonStatic() {
         Scanner scX = new Scanner(System.in);
         System.out.println("Введите координату Х (строка): ");

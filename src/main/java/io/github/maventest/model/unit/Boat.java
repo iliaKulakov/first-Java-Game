@@ -21,10 +21,12 @@ public class Boat implements Ship {
     public boolean checkIsAlive() {
         if (this.lifeBoat > 0) {
             this.isAlive = true;
+            return true;
         } else {
             this.isAlive = false;
+            return false;
         }
-        return isAlive;
+
     }
 
     @Override
