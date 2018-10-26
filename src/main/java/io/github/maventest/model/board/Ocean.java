@@ -76,7 +76,9 @@ public class Ocean implements Board {
                 boardCells[i][j] = 0;
             }
         }
-        buildAllShips();
+        while (boats.size()!=10){
+            boats.clear();
+            buildAllShips();}
     }
 
     @Override
@@ -255,6 +257,12 @@ public class Ocean implements Board {
             System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
             return false;
            }
+
+    public static void main(String[] args){
+        Ocean ocean = new Ocean();
+        ocean.init();
+        System.out.println("Размер хеш мап " + ocean.boats.size());
+    }
 
 }
 
