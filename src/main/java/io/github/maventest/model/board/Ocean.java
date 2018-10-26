@@ -42,14 +42,13 @@ public class Ocean implements Board {
     @Override
     public void setCoordinates(int x, int y) {
         this.boardCells[x][y] = 88;
-            for (int i = 0; i < 10; i++) {
+            /*for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
 
                     if(boardCells[i][j] != 0) {
                         boardCells[i][j] = 88;
                     } }
-            }
-
+            }*/
     }
 
     public void setShipsDestroyed(int newShipsDestroyed) {
@@ -142,7 +141,6 @@ public class Ocean implements Board {
         int randomW = randomGenerator.nextInt(SIZE_W - 1);
         int randomH = randomGenerator.nextInt(SIZE_H - 1);
 
-
         if (okPlaceToShip(randomW, randomH, shipLength, horizontal)) {
             for (int i = 0; i < shipLength; i++) {
 
@@ -227,24 +225,6 @@ public class Ocean implements Board {
 
     @Override
     public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
-       /* if (this.boardCells[weight][height] != 0) {
-            Cell cellVar = new Cell(weight, height);
-            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-
-                if (item.getKey().contains(cellVar)) {
-                    //boardCells[weight][height] = 99;
-                    item.getValue().toRegisterTheShot();
-
-                    if (!item.getValue().checkIsAlive()) {
-                        shipsDestroyed = shipsDestroyed + 1;
-
-                    }
-                    return true;
-                }
-            }
-        }
-        return false;
-        */
 
         if (this.boardCells[weight][height] != 0) {
             Cell cellVar = new Cell(weight, height);
@@ -265,49 +245,18 @@ public class Ocean implements Board {
         return false;
     }
 
-
-
-
-
     public boolean isGameOver() {
-      //  boolean result = false;
-       //if( Arrays.stream(boardCells).allMatch(s -> s.equals("99"))){
-/*
-
-    /*    for (int i = 0; i < SIZE_H; i++) {
-            for (int j = 0; j < SIZE_W; j++) {
-                if(boardCells[i][j] == 99) {
-                    result =  true;
-                } else {
-                    result = false;
-                }
-            }
-        }
-        return result;*/
-
-
-       // for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-
-         //       if (!item.getValue().checkIsAlive()) {
 
         if(this.shipsDestroyed == TOTAL_SHIPS){
             System.out.println("Game over. Ships were destroyed =" + shipsDestroyed);
 
-            //for (int i = 0; i < SIZE_H; i++) {
-              //  for (int j = 0; j < SIZE_W; j++) {
-                //    if(boardCells[i][j] != 0)
-                  //  {
-                    //    boardCells[i][j]=99;
-                   // }
-
-                //}
             return true;
             }
-        System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
-        return false;
+            System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
+            return false;
            }
 
-        }
+}
 
 
 
