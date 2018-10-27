@@ -11,10 +11,10 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Ocean implements Board {
-    private static final int BOAT = 4;
-    private static final int TWO_DECK_SHIP = 3;
-    private static final int KARAS = 2;
-    private static final int BOMBER = 1;
+    private static final int BOAT = 4;//4
+    private static final int TWO_DECK_SHIP = 3;//3
+    private static final int KARAS = 2;//2
+    private static final int BOMBER = 1;//1
    // private static final int TOTAL_SHIPS = 10;
     private static  int TOTAL_SHIPS = 0;
     private final int SIZE_W = 10;
@@ -54,7 +54,7 @@ public class Ocean implements Board {
 
     private void createShip(int shipCount, UnitType<ShipType> shipType) {
         for (int i = 0; i < shipCount; i++) {
-            placeUnit(shipType);
+           placeUnit(shipType);
         }
     }
 
@@ -114,7 +114,6 @@ public class Ocean implements Board {
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
-
         ship.setPosition(horizontal, shipCells.toArray(new Cell[shipCells.size()]));
 
         occupiedCells.addAll(shipCells);
@@ -217,7 +216,7 @@ public class Ocean implements Board {
                         shipsDestroyed = shipsDestroyed + 1;
 
                     }
-                  //  boardCells[weight][height] = 99;
+
                 }
             }
         }
@@ -270,6 +269,8 @@ public class Ocean implements Board {
 
         ocean.shotAtTheEnemyShipBoolean(0,0);
         ocean.print();
+        System.out.println("Размер хеш заполненных ячеек " + ocean.occupiedCells.size());
+
 
         }
 
