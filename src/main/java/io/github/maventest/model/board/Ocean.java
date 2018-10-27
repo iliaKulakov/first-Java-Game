@@ -16,7 +16,7 @@ public class Ocean implements Board {
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
    // private static final int TOTAL_SHIPS = 10;
-    private static  int TOTAL_SHIPS = 10;
+    private static  int TOTAL_SHIPS = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
