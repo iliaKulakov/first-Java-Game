@@ -8,15 +8,14 @@ import io.github.maventest.model.unit.Unit;
 import io.github.maventest.model.unit.UnitType;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private static final int BOAT = 4;//4
     private static final int TWO_DECK_SHIP = 3;//3
     private static final int KARAS = 2;//2
     private static final int BOMBER = 1;//1
-   // private static final int TOTAL_SHIPS = 10;
-    private static  int TOTAL_SHIPS = 0;
+    // private static final int TOTAL_SHIPS = 10;
+    private static int TOTAL_SHIPS = 0;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
@@ -29,6 +28,23 @@ public class Ocean implements Board {
     private CellSet<Cell> occupiedCells = new CellSet<>();
 
 
+    public Ocean() {
+        shipFactory = ShipFactory.getInstance();
+    }
+
+    public static void main(String[] args) {
+        Ocean ocean = new Ocean();
+        ocean.init();
+        System.out.println("Размер хеш мап " + ocean.boats.size());
+        ocean.buildAllShips();
+
+        ocean.shotAtTheEnemyShipBoolean(0, 0);
+        ocean.print();
+        System.out.println("Размер хеш заполненных ячеек " + ocean.occupiedCells.size());
+
+
+    }
+
     public int[][] getBoardCells() {
         return boardCells;
     }
@@ -37,8 +53,9 @@ public class Ocean implements Board {
         return shipsDestroyed;
     }
 
-    public Ocean() {
-        shipFactory = ShipFactory.getInstance();
+    public void setShipsDestroyed(int newShipsDestroyed) {
+        shipsDestroyed = shipsDestroyed + newShipsDestroyed;
+
     }
 
     @Override
@@ -47,14 +64,9 @@ public class Ocean implements Board {
 
     }
 
-    public void setShipsDestroyed(int newShipsDestroyed) {
-        shipsDestroyed = shipsDestroyed + newShipsDestroyed;
-
-    }
-
     private void createShip(int shipCount, UnitType<ShipType> shipType) {
         for (int i = 0; i < shipCount; i++) {
-           placeUnit(shipType);
+            placeUnit(shipType);
         }
     }
 
@@ -72,11 +84,12 @@ public class Ocean implements Board {
                 boardCells[i][j] = 0;
             }
         }
-        while (boats.size()!=10){
+        while (boats.size() != 10) {
             boats.clear();
-            buildAllShips();}
-            System.out.println("Количество созданных кораблей " + boats.size());
-            TOTAL_SHIPS = boats.size();
+            buildAllShips();
+        }
+        System.out.println("Количество созданных кораблей " + boats.size());
+        TOTAL_SHIPS = boats.size();
     }
 
     @Override
@@ -224,11 +237,11 @@ public class Ocean implements Board {
 
     @Override
     public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
-        boolean result =false;
-        if(this.boardCells[weight][height] == 88){
+        boolean result = false;
+        if (this.boardCells[weight][height] == 88) {
             result = false;
             return result;
-        } else{
+        } else {
             if (this.boardCells[weight][height] != 0) {
                 Cell cellVar = new Cell(weight, height);
                 for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
@@ -251,31 +264,18 @@ public class Ocean implements Board {
 
     public boolean isGameOver() {
 
-        if(this.shipsDestroyed == TOTAL_SHIPS){
+        if (this.shipsDestroyed == TOTAL_SHIPS) {
             System.out.println("Game over. Ships were destroyed = " + shipsDestroyed);
             System.out.println("Количество кораблей созданных вначале " + TOTAL_SHIPS);
             return true;
-            }
-            System.out.println("Not Game over. Ships were destroyed = " + shipsDestroyed);
-            System.out.println("Количество кораблей созданных вначале " + TOTAL_SHIPS);
-            return false;
-           }
-
-    public static void main(String[] args){
-        Ocean ocean = new Ocean();
-        ocean.init();
-        System.out.println("Размер хеш мап " + ocean.boats.size());
-        ocean.buildAllShips();
-
-        ocean.shotAtTheEnemyShipBoolean(0,0);
-        ocean.print();
-        System.out.println("Размер хеш заполненных ячеек " + ocean.occupiedCells.size());
-
-
         }
-
-
+        System.out.println("Not Game over. Ships were destroyed = " + shipsDestroyed);
+        System.out.println("Количество кораблей созданных вначале " + TOTAL_SHIPS);
+        return false;
     }
+
+
+}
 
 
 
