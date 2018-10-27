@@ -8,13 +8,15 @@ import io.github.maventest.model.unit.Unit;
 import io.github.maventest.model.unit.UnitType;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Ocean implements Board {
     private static final int BOAT = 4;
     private static final int TWO_DECK_SHIP = 3;
     private static final int KARAS = 2;
     private static final int BOMBER = 1;
-    private static final int TOTAL_SHIPS = 10;
+   // private static final int TOTAL_SHIPS = 10;
+    private static  int TOTAL_SHIPS = 10;
     private final int SIZE_W = 10;
     private final int SIZE_H = 10;
     private final Random randomGenerator = new Random();
@@ -42,13 +44,7 @@ public class Ocean implements Board {
     @Override
     public void setCoordinates(int x, int y) {
         this.boardCells[x][y] = 88;
-            /*for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
 
-                    if(boardCells[i][j] != 0) {
-                        boardCells[i][j] = 88;
-                    } }
-            }*/
     }
 
     public void setShipsDestroyed(int newShipsDestroyed) {
@@ -79,6 +75,8 @@ public class Ocean implements Board {
         while (boats.size()!=10){
             boats.clear();
             buildAllShips();}
+            System.out.println("Количество созданных кораблей " + boats.size());
+            TOTAL_SHIPS = boats.size();
     }
 
     @Override
@@ -227,34 +225,40 @@ public class Ocean implements Board {
 
     @Override
     public boolean shotAtTheEnemyShipBoolean(int weight, int height) {
-
-        if (this.boardCells[weight][height] != 0) {
-            Cell cellVar = new Cell(weight, height);
-            for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
-
-                if (item.getKey().contains(cellVar)) {
-                    //boardCells[weight][height] = 99;
-                    item.getValue().toRegisterTheShot();
-                    boardCells[weight][height] = 99;
-                    if (!item.getValue().checkIsAlive()) {
-                        shipsDestroyed = shipsDestroyed + 1;
+        boolean result =false;
+        if(this.boardCells[weight][height] == 88){
+            result = false;
+            return result;
+        } else{
+            if (this.boardCells[weight][height] != 0) {
+                Cell cellVar = new Cell(weight, height);
+                for (Map.Entry<CellSet<Cell>, Unit> item : boats.entrySet()) {
+                    if (item.getKey().contains(cellVar)) {
                         //boardCells[weight][height] = 99;
+                        item.getValue().toRegisterTheShot();
+                        boardCells[weight][height] = 88;
+                        if (!item.getValue().checkIsAlive()) {
+                            shipsDestroyed = shipsDestroyed + 1;
+                            //boardCells[weight][height] = 99;
+                        }
+                        result = true;
+                        return result;
                     }
-                    return true;
                 }
             }
         }
-        return false;
+        return result;
     }
 
     public boolean isGameOver() {
 
         if(this.shipsDestroyed == TOTAL_SHIPS){
-            System.out.println("Game over. Ships were destroyed =" + shipsDestroyed);
-
+            System.out.println("Game over. Ships were destroyed = " + shipsDestroyed);
+            System.out.println("Количество кораблей созданных вначале " + TOTAL_SHIPS);
             return true;
             }
-            System.out.println("Not Game over. Ships were destroyed =" + shipsDestroyed);
+            System.out.println("Not Game over. Ships were destroyed = " + shipsDestroyed);
+            System.out.println("Количество кораблей созданных вначале " + TOTAL_SHIPS);
             return false;
            }
 
@@ -262,9 +266,17 @@ public class Ocean implements Board {
         Ocean ocean = new Ocean();
         ocean.init();
         System.out.println("Размер хеш мап " + ocean.boats.size());
+        ocean.buildAllShips();
+
+        ocean.shotAtTheEnemyShipBoolean(0,0);
+        ocean.print();
+
+        }
+
+
     }
 
-}
+
 
 
 
